@@ -28,7 +28,7 @@ import com.example.sp2020group5.StudentActivity;
 import com.example.sp2020group5.StudentSignUp;
 
 public class LoginActivity extends AppCompatActivity {
-
+    Button login;
     private LoginViewModel loginViewModel;
 	public int STAFF_SIGNUP_PAGE_REQUEST=2;
     public int STUDENT_SIGNUP_PAGE_REQUEST=1;
@@ -46,7 +46,13 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
-
+        login = (Button) findViewById(R.id.login);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                start();
+            }
+        });
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {
@@ -120,19 +126,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         //final Context context = this;
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
-//                Intent ini=new Intent(context, StaffActivity.class);
-//                startActivity(ini);
 
-            }
-        });
     }
 
+    public void start(){
+        Intent inte = new Intent(this, StudentActivity.class);
+        startActivity(inte);
+    }
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
