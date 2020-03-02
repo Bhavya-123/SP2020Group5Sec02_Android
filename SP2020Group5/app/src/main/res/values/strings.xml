@@ -23,4 +23,11 @@
     <string name="menu_profile">Profile</string>
     <string name="menu_help">Help</string>
     <string name="menu_send">Send</string>
+    <string name="title_activity_student">StudentActivity</string>
+    <string name="nav_header_title_student">Student Name</string>
+    <string name="nav_header_subtitle_student">s536273@outlook.com</string>
+    <string name="menu_myjobs">My Jobs</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_resume">Resume</string>
+    <string name="menu_Help">Help</string>
 </resources>

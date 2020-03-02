@@ -24,6 +24,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.sp2020group5.R;
 import com.example.sp2020group5.StaffActivity;
 import com.example.sp2020group5.StaffSignUp;
+import com.example.sp2020group5.StudentActivity;
 import com.example.sp2020group5.StudentSignUp;
 
 public class LoginActivity extends AppCompatActivity {
@@ -168,6 +169,11 @@ public class LoginActivity extends AppCompatActivity {
 
     public void next(View v){
         Intent in = new Intent(this, StaffActivity.class);
+        startActivity(in);
+    }
+
+    public void next1(View v){
+        Intent in = new Intent(this, StudentActivity.class);
         startActivity(in);
     }
 

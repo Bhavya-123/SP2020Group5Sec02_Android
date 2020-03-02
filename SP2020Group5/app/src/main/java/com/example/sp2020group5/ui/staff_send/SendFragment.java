@@ -1,4 +1,4 @@
-package com.example.sp2020group5.ui.send;
+package com.example.sp2020group5.ui.staff_send;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

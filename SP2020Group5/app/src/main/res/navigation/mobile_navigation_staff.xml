@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/nav_send"
-        android:name="com.example.sp2020group5.ui.send.SendFragment"
+        android:name="com.example.sp2020group5.ui.staff_send.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/staff_send" />
 </navigation>
