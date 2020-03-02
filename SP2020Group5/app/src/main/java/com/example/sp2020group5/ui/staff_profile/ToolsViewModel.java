@@ -1,4 +1,4 @@
-package com.example.sp2020group5.ui.tools;
+package com.example.sp2020group5.ui.staff_profile;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

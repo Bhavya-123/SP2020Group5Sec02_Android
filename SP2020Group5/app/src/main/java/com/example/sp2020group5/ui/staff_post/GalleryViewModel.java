@@ -1,16 +1,16 @@
-package com.example.sp2020group5.ui.slideshow;
+package com.example.sp2020group5.ui.staff_post;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class GalleryViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public GalleryViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is fragment for list all jobs");
+        mText.setValue("This is fragment for posting new jobs");
     }
 
     public LiveData<String> getText() {

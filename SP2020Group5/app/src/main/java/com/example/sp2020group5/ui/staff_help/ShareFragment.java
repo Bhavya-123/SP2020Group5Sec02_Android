@@ -1,4 +1,4 @@
-package com.example.sp2020group5.ui.share;
+package com.example.sp2020group5.ui.staff_help;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,7 +22,7 @@ public class ShareFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         shareViewModel =
                 ViewModelProviders.of(this).get(ShareViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_help, container, false);
+        View root = inflater.inflate(R.layout.staff_help, container, false);
         final TextView textView = root.findViewById(R.id.text_share);
         shareViewModel.getText().observe(this, new Observer<String>() {
             @Override
