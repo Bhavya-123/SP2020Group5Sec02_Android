@@ -15,7 +15,7 @@
         android:id="@+id/nav_gallery"
         android:name="com.example.sp2020group5.ui.gallery.GalleryFragment"
         android:label="Post a Job"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_post" />
 
     <fragment
         android:id="@+id/nav_slideshow"
