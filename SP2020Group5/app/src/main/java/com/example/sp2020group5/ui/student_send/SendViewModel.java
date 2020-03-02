@@ -1,4 +1,4 @@
-package com.example.sp2020group5.ui.student_sendd;
+package com.example.sp2020group5.ui.student_send;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
