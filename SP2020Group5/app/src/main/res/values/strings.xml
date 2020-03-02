@@ -28,6 +28,6 @@
     <string name="nav_header_subtitle_student">s536273@outlook.com</string>
     <string name="menu_myjobs">My Jobs</string>
     <string name="menu_search">Search</string>
-    <string name="menu_resume">Resume</string>
+    <string name="menu_profile_student">Profile</string>
     <string name="menu_Help">Help</string>
 </resources>
