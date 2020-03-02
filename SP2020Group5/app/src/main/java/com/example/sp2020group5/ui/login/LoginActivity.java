@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private LoginViewModel loginViewModel;
 	public int STAFF_SIGNUP_PAGE_REQUEST=2;
     public int STUDENT_SIGNUP_PAGE_REQUEST=1;
-    
+    final Context mycontext=this;
 
 
     @Override
@@ -50,7 +50,9 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                start();
+                //start();
+                Intent ini=new Intent(mycontext,StaffActivity.class);
+                mycontext.startActivity(ini);
             }
         });
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
@@ -69,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        final Context mycontext=this;
+
 
         loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
             @Override
@@ -87,8 +89,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 setResult(Activity.RESULT_OK);
 
-                Intent in = new Intent(mycontext,StaffActivity.class);
-                mycontext.startActivity(in);
+               // Intent in = new Intent(mycontext,StaffActivity.class);
+              //  mycontext.startActivity(in);
 
                 //Complete and destroy login activity once successful
                 finish();
