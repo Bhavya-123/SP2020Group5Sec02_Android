@@ -1,17 +1,9 @@
 package com.example.sp2020group5.ui.login;
 
 import android.app.Activity;
-
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -23,12 +15,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.example.sp2020group5.R;
+import com.example.sp2020group5.StaffActivity;
 import com.example.sp2020group5.StaffSignUp;
 import com.example.sp2020group5.StudentSignUp;
-
-import com.example.sp2020group5.ui.login.LoginViewModel;
-import com.example.sp2020group5.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -116,13 +112,16 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
         });
-
+        final Context context = this;
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
+                Intent ini=new Intent(context, StaffActivity.class);
+                startActivity(ini);
+
             }
         });
     }
@@ -161,7 +160,10 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    
+    public void next(View v){
+        Intent in = new Intent(this, StaffActivity.class);
+        startActivity(in);
+    }
 
     
 }
