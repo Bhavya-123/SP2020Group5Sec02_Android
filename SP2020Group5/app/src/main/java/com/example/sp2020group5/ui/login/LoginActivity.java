@@ -62,6 +62,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        final Context mycontext=this;
+
         loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
             @Override
             public void onChanged(@Nullable LoginResult loginResult) {
@@ -74,8 +76,12 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 if (loginResult.getSuccess() != null) {
                     updateUiWithUser(loginResult.getSuccess());
+
                 }
                 setResult(Activity.RESULT_OK);
+
+                Intent in = new Intent(mycontext,StaffActivity.class);
+                mycontext.startActivity(in);
 
                 //Complete and destroy login activity once successful
                 finish();
@@ -112,15 +118,15 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
         });
-        final Context context = this;
+        //final Context context = this;
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
-                Intent ini=new Intent(context, StaffActivity.class);
-                startActivity(ini);
+//                Intent ini=new Intent(context, StaffActivity.class);
+//                startActivity(ini);
 
             }
         });
