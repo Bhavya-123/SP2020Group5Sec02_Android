@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.sp2020group5.ui.student_home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/student_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.sp2020group5.ui.student_myjobs.GalleryFragment"
+        android:label="@string/menu_myjobs"
+        tools:layout="@layout/student_myjobs" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.sp2020group5.ui.student_search.SlideshowFragment"
+        android:label="@string/menu_search"
+        tools:layout="@layout/student_search" />
+
+    <fragment
+        android:id="@+id/nav_tools"
+        android:name="com.example.sp2020group5.ui.student_profile.ToolsFragment"
+        android:label="@string/menu_profile_student"
+        tools:layout="@layout/student_send" />
+
+    <fragment
+        android:id="@+id/nav_share"
+        android:name="com.example.sp2020group5.ui.student_help.ShareFragment"
+        android:label="@string/menu_Help"
+        tools:layout="@layout/student_help" />
+
+    <fragment
+        android:id="@+id/nav_send"
+        android:name="com.example.sp2020group5.ui.student_sendd.SendFragment"
+        android:label="@string/menu_send"
+        tools:layout="@layout/student_profile" />
+</navigation>
