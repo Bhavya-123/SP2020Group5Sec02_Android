@@ -98,6 +98,7 @@
         android:textSize="16dp"
         android:background="@color/cardview_dark_background"
         android:textColor="@color/colorWhite"
+        android:onClick="onClickRegister_asstudent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.462"
