@@ -24,6 +24,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sp2020group5.R;
+import com.example.sp2020group5.StaffSignUp;
+import com.example.sp2020group5.StudentSignUp;
 
 import com.example.sp2020group5.ui.login.LoginViewModel;
 import com.example.sp2020group5.ui.login.LoginViewModelFactory;
@@ -31,6 +33,8 @@ import com.example.sp2020group5.ui.login.LoginViewModelFactory;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
+	public int STAFF_SIGNUP_PAGE_REQUEST=2;
+    public int STUDENT_SIGNUP_PAGE_REQUEST=1;
     
 
 
@@ -132,6 +136,31 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+	public void OnclickStudentsignup(View v){
+        Intent ini=new Intent(this, StudentSignUp.class);
+        startActivityForResult(ini,STUDENT_SIGNUP_PAGE_REQUEST);
+    }
+    public void OnclickStaffsignup(View v){
+        Intent ini=new Intent(this, StaffSignUp.class);
+        startActivityForResult(ini,STAFF_SIGNUP_PAGE_REQUEST);
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==STAFF_SIGNUP_PAGE_REQUEST){
+            if(resultCode==RESULT_OK){
+
+            }
+        }
+        else if(requestCode==STUDENT_SIGNUP_PAGE_REQUEST){
+            if(resultCode==RESULT_OK){
+
+            }
+        }
+    }
+
     
 
     

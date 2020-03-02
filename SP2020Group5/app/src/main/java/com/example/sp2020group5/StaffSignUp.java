@@ -16,5 +16,12 @@ public class StaffSignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staff_sign_up);
     }
+	public void onClickRegister_asstaff(View v){
+        Toast.makeText(getApplicationContext(),"Your Registration is successful.Please Login",Toast.LENGTH_LONG).show();
+        Intent ini=new Intent(this, LoginActivity.class);
+        setResult(RESULT_OK,ini);
+        finish();
+
+    }
     
 }
