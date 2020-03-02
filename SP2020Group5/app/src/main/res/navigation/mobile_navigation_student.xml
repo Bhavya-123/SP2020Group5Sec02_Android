@@ -24,6 +24,12 @@
         tools:layout="@layout/student_search" />
 
     <fragment
+        android:id="@+id/nav_major"
+        android:name="com.example.sp2020group5.ui.student_major.studentmajor"
+        android:label="@string/menu_major"
+        tools:layout="@layout/student_major" />
+
+    <fragment
         android:id="@+id/nav_tools"
         android:name="com.example.sp2020group5.ui.student_profile.ToolsFragment"
         android:label="@string/menu_profile_student"
@@ -35,9 +41,4 @@
         android:label="@string/menu_Help"
         tools:layout="@layout/student_help" />
 
-    <fragment
-        android:id="@+id/nav_send"
-        android:name="com.example.sp2020group5.ui.student_send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/student_profile" />
 </navigation>
