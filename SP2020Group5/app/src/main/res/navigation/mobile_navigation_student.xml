@@ -12,13 +12,13 @@
         tools:layout="@layout/student_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_jobs"
         android:name="com.example.sp2020group5.ui.student_myjobs.GalleryFragment"
         android:label="@string/menu_myjobs"
         tools:layout="@layout/student_myjobs" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_search"
         android:name="com.example.sp2020group5.ui.student_search.SlideshowFragment"
         android:label="@string/menu_search"
         tools:layout="@layout/student_search" />
@@ -30,13 +30,13 @@
         tools:layout="@layout/student_major" />
 
     <fragment
-        android:id="@+id/nav_tools"
+        android:id="@+id/nav_profile"
         android:name="com.example.sp2020group5.ui.student_profile.ToolsFragment"
         android:label="@string/menu_profile_student"
-        tools:layout="@layout/student_send" />
+        tools:layout="@layout/student_profile" />
 
     <fragment
-        android:id="@+id/nav_share"
+        android:id="@+id/nav_help"
         android:name="com.example.sp2020group5.ui.student_help.ShareFragment"
         android:label="@string/menu_Help"
         tools:layout="@layout/student_help" />
