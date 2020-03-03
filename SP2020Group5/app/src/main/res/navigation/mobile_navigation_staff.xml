@@ -12,32 +12,27 @@
         tools:layout="@layout/staff_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_post"
         android:name="com.example.sp2020group5.ui.staff_post.GalleryFragment"
         android:label="Post a Job"
         tools:layout="@layout/staff_post" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_view"
         android:name="com.example.sp2020group5.ui.staff_view.SlideshowFragment"
         android:label="view"
         tools:layout="View Jobs" />
 
     <fragment
-        android:id="@+id/nav_tools"
+        android:id="@+id/nav_profile"
         android:name="com.example.sp2020group5.ui.staff_profile.ToolsFragment"
         android:label="Profile"
         tools:layout="@layout/staff_profile" />
 
     <fragment
-        android:id="@+id/nav_share"
+        android:id="@+id/nav_help"
         android:name="com.example.sp2020group5.ui.staff_help.ShareFragment"
         android:label="@string/menu_help"
         tools:layout="@layout/staff_help" />
 
-    <fragment
-        android:id="@+id/nav_send"
-        android:name="com.example.sp2020group5.ui.staff_send.SendFragment"
-        android:label="@string/menu_profile_student"
-        tools:layout="@layout/staff_send" />
 </navigation>
