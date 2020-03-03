@@ -9,15 +9,15 @@
             android:icon="@drawable/ic_public_black_24dp"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_post"
             android:icon="@drawable/ic_business_center_black_24dp"
             android:title="@string/menu_post" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_view"
             android:icon="@drawable/ic_visibility_black_24dp"
             android:title="@string/menu_view" />
         <item
-            android:id="@+id/nav_tools"
+            android:id="@+id/nav_profile"
             android:icon="@drawable/ic_account_circle_black_24dp"
             android:title="@string/menu_profile" />
     </group>
@@ -25,13 +25,9 @@
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_help"
                 android:icon="@drawable/ic_live_help_black_24dp"
                 android:title="@string/menu_help" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
         </menu>
     </item>
 
