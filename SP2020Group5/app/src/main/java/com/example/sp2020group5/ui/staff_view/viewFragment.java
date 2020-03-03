@@ -1,4 +1,4 @@
-package com.example.sp2020group5.ui.student_profile;
+package com.example.sp2020group5.ui.staff_view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.sp2020group5.R;
 
-public class ToolsFragment extends Fragment {
+public class viewFragment extends Fragment {
 
-    private ToolsViewModel toolsViewModel;
+    private viewViewModel viewViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        toolsViewModel =
-                ViewModelProviders.of(this).get(ToolsViewModel.class);
-        View root = inflater.inflate(R.layout.student_profile, container, false);
-        final TextView textView = root.findViewById(R.id.text_tools);
-        toolsViewModel.getText().observe(this, new Observer<String>() {
+        viewViewModel =
+                ViewModelProviders.of(this).get(viewViewModel.class);
+        View root = inflater.inflate(R.layout.staff_view, container, false);
+        final TextView textView = root.findViewById(R.id.text_slideshow);
+        viewViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

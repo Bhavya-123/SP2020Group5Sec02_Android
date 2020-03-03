@@ -1,14 +1,14 @@
-package com.example.sp2020group5.ui.student_myjobs;
+package com.example.sp2020group5.ui.student_help;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class helpViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public helpViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("");
     }

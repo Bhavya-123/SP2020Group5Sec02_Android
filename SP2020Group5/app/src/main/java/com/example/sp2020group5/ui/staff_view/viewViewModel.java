@@ -1,14 +1,14 @@
-package com.example.sp2020group5.ui.staff_help;
+package com.example.sp2020group5.ui.staff_view;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ShareViewModel extends ViewModel {
+public class viewViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ShareViewModel() {
+    public viewViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("");
     }

@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.sp2020group5.R;
 
-public class GalleryFragment extends Fragment {
+public class postFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
+    private postViewModel postViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(GalleryViewModel.class);
+        postViewModel =
+                ViewModelProviders.of(this).get(postViewModel.class);
         View root = inflater.inflate(R.layout.staff_post, container, false);
         final TextView textView = root.findViewById(R.id.text_gallery);
-        galleryViewModel.getText().observe(this, new Observer<String>() {
+        postViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

@@ -1,4 +1,4 @@
-package com.example.sp2020group5.ui.student_help;
+package com.example.sp2020group5.ui.student_profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.sp2020group5.R;
 
-public class ShareFragment extends Fragment {
+public class profileFragment extends Fragment {
 
-    private ShareViewModel shareViewModel;
+    private profileViewModel profileViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        shareViewModel =
-                ViewModelProviders.of(this).get(ShareViewModel.class);
-        View root = inflater.inflate(R.layout.student_help, container, false);
-        final TextView textView = root.findViewById(R.id.text_share);
-        shareViewModel.getText().observe(this, new Observer<String>() {
+        profileViewModel =
+                ViewModelProviders.of(this).get(profileViewModel.class);
+        View root = inflater.inflate(R.layout.student_profile, container, false);
+        final TextView textView = root.findViewById(R.id.text_tools);
+        profileViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

@@ -13,25 +13,25 @@
 
     <fragment
         android:id="@+id/nav_post"
-        android:name="com.example.sp2020group5.ui.staff_post.GalleryFragment"
+        android:name="com.example.sp2020group5.ui.staff_post.postFragment"
         android:label="Post a Job"
         tools:layout="@layout/staff_post" />
 
     <fragment
         android:id="@+id/nav_view"
-        android:name="com.example.sp2020group5.ui.staff_view.SlideshowFragment"
+        android:name="com.example.sp2020group5.ui.staff_view.viewFragment"
         android:label="view"
         tools:layout="View Jobs" />
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.sp2020group5.ui.staff_profile.ToolsFragment"
+        android:name="com.example.sp2020group5.ui.staff_profile.profileFragment"
         android:label="Profile"
         tools:layout="@layout/staff_profile" />
 
     <fragment
         android:id="@+id/nav_help"
-        android:name="com.example.sp2020group5.ui.staff_help.ShareFragment"
+        android:name="com.example.sp2020group5.ui.staff_help.helpFragment"
         android:label="@string/menu_help"
         tools:layout="@layout/staff_help" />
 

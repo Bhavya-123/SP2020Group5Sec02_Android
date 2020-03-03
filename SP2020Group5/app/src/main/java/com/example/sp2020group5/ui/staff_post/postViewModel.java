@@ -1,14 +1,14 @@
-package com.example.sp2020group5.ui.staff_profile;
+package com.example.sp2020group5.ui.staff_post;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ToolsViewModel extends ViewModel {
+public class postViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ToolsViewModel() {
+    public postViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("");
     }

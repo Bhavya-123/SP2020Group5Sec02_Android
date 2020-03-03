@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_jobs"
-        android:name="com.example.sp2020group5.ui.student_myjobs.GalleryFragment"
+        android:name="com.example.sp2020group5.ui.student_myjobs.myjobsFragment"
         android:label="@string/menu_myjobs"
         tools:layout="@layout/student_myjobs" />
 
@@ -31,13 +31,13 @@
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.sp2020group5.ui.student_profile.ToolsFragment"
+        android:name="com.example.sp2020group5.ui.student_profile.profileFragment"
         android:label="@string/menu_profile_student"
         tools:layout="@layout/student_profile" />
 
     <fragment
         android:id="@+id/nav_help"
-        android:name="com.example.sp2020group5.ui.student_help.ShareFragment"
+        android:name="com.example.sp2020group5.ui.student_help.helpFragment"
         android:label="@string/menu_Help"
         tools:layout="@layout/student_help" />
 
