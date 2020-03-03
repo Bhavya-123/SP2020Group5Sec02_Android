@@ -89,8 +89,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 setResult(Activity.RESULT_OK);
 
-               // Intent in = new Intent(mycontext,StaffActivity.class);
-              //  mycontext.startActivity(in);
 
                 //Complete and destroy login activity once successful
                 finish();
@@ -131,10 +129,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void start(){
-        Intent inte = new Intent(this, StudentActivity.class);
-        startActivity(inte);
-    }
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
@@ -169,10 +163,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void next(View v){
-        Intent in = new Intent(this, StaffActivity.class);
-        startActivity(in);
-    }
 
     public void next1(View v){
         Intent in = new Intent(this, StudentActivity.class);
