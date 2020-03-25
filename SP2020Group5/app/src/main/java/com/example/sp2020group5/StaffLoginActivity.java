@@ -23,7 +23,7 @@ public class StaffLoginActivity extends AppCompatActivity {
         pwd=pwdET.getText().toString();
 
         if(!(empid.isEmpty() && pwd.isEmpty())){
-            if(!(empid.length()<6 )){
+            if((empid.length()==6 )){
 
                 if(!(pwd.length()<8)){
                     Intent ini = new Intent(this,StaffActivity.class);
