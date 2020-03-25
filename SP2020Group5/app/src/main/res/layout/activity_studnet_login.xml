@@ -7,12 +7,13 @@
     tools:context=".StudnetLoginActivity">
 
     <EditText
-        android:id="@+id/loginidET"
+        android:id="@+id/stuloginidET"
         android:layout_width="271dp"
         android:layout_height="46dp"
         android:ems="10"
-        android:hint="login id"
+        android:hint="Email id(S-ID)"
         android:inputType="textEmailAddress"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.277"
@@ -21,17 +22,31 @@
         app:layout_constraintVertical_bias="0.139" />
 
     <EditText
-        android:id="@+id/loginpwdET"
+        android:id="@+id/stuloginpwdET"
         android:layout_width="273dp"
         android:layout_height="44dp"
         android:ems="10"
-        android:hint="password"
+        android:hint="Password"
         android:inputType="textPassword"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.277"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.239" />
+
+    <Button
+        android:id="@+id/studentloginBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="login"
+        android:onClick="onclickLogin_student"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.367" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class StudnetLoginActivity extends AppCompatActivity {
-    String loginid,pwd;
+    String emailid,studentpwd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,15 +17,15 @@ public class StudnetLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_studnet_login);
     }
     public void onclickLogin_student(View v){
-        EditText loginidET = findViewById(R.id.loginidET);
-        EditText pwdET=findViewById(R.id.loginpwdET);
-        loginid=loginidET.getText().toString();
-        pwd=pwdET.getText().toString();
+        EditText emailidET = findViewById(R.id.stuloginidET);
+        EditText studentpwdET=findViewById(R.id.stuloginpwdET);
+        emailid=emailidET.getText().toString();
+        studentpwd=studentpwdET.getText().toString();
 
-        if(!(loginid.isEmpty() && pwd.isEmpty())){
-            if(loginid.contains("@nwmissouri.edu") || loginid.contains("@NWMISSOURI.EDU") ){
+        if(!(emailid.isEmpty() && studentpwd.isEmpty())){
+            if(emailid.contains("@nwmissouri.edu") || emailid.contains("@NWMISSOURI.EDU") ){
 
-                if(!(pwd.length()<8)){
+                if(!(studentpwd.length()<8)){
                     Intent ini = new Intent(this,StudentActivity.class);
                     startActivity(ini);
                 }
