@@ -27,7 +27,7 @@ public class StaffSignUp extends AppCompatActivity {
         empid = empidET.getText().toString();
         EditText pwdET = findViewById(R.id.staffpasswordET);
         pwd = pwdET.getText().toString();
-        if (!(staffFname.isEmpty() && staffLname.isEmpty() && empid.isEmpty() && pwd.isEmpty())) {
+        if ((!staffFname.isEmpty() && !staffLname.isEmpty() && !empid.isEmpty() && !pwd.isEmpty())) {
             if (!(staffFnameET.length() > 50)) {
                 if (!(staffLnameET.length() > 50)) {
                     if ((empid.length() == 6)) {
