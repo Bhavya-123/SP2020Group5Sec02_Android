@@ -48,9 +48,7 @@
         android:id="@+id/lastnameET"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
         android:hint="Last Name"
-
         android:inputType="textPersonName"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,7 +62,6 @@
         android:id="@+id/emailET"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
         android:hint="E-mail Address"
         android:textSize="16dp"
         android:inputType="textEmailAddress"

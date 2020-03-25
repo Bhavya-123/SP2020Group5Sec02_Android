@@ -16,7 +16,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void HomeLogin_Student(View v){
-        Intent ini = new Intent(this,StudnetLoginActivity.class);
+        Intent ini = new Intent(this, StudentLoginActivity.class);
         startActivity(ini);
     }
 

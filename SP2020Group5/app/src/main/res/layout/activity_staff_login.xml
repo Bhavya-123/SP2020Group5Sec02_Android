@@ -12,7 +12,7 @@
         android:layout_height="46dp"
         android:ems="10"
         android:hint="Employee id"
-        android:inputType="textEmailAddress"
+        android:inputType="number"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -8,13 +8,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class StudnetLoginActivity extends AppCompatActivity {
+public class StudentLoginActivity extends AppCompatActivity {
     String emailid,studentpwd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_studnet_login);
+        setContentView(R.layout.activity_student_login);
     }
     public void onclickLogin_student(View v){
         EditText emailidET = findViewById(R.id.stuloginidET);
