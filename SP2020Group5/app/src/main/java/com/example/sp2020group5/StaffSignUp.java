@@ -1,13 +1,13 @@
 package com.example.sp2020group5;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.sp2020group5.ui.login.LoginActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
+
 
 public class StaffSignUp extends AppCompatActivity {
 
