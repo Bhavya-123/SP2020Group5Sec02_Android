@@ -18,7 +18,7 @@ public class StudentSignUp extends AppCompatActivity {
     }
 	public void onClickRegister_asstudent(View v){
         Toast.makeText(getApplicationContext(),"Your Registration as student is successful.Please Login",Toast.LENGTH_LONG).show();
-        Intent ini=new Intent(this, LoginActivity.class);
+        Intent ini=new Intent(this, HomeActivity.class);
         setResult(RESULT_OK,ini);
         finish();
 }
