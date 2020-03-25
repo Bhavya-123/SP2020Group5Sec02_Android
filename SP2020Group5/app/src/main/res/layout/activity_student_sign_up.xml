@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:text="Student Signup"
         android:textStyle="bold"
-        android:textSize="15dp"
+        android:textSize="25dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintBottom_toBottomOf="parent"

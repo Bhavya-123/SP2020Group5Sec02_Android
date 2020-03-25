@@ -10,8 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".StaffLoginActivity"></activity>
-        <activity android:name=".StudentLoginActivity" /> <!-- <activity android:name=".HomeActivity"></activity> -->
-        <!-- <activity android:name=".JobsActivity" /> -->
+        <activity android:name=".StudentLoginActivity" />
+        <!-- <activity android:name=".HomeActivity"></activity> -->
+         <activity android:name=".JobsActivity" />
         <activity
             android:name=".StudentActivity"
             android:label="@string/title_activity_student"
