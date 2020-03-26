@@ -13,21 +13,24 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.sp2020group5.R;
+import com.example.sp2020group5.ui.staff_post.postFragment;
 
 public class viewFragment extends Fragment {
 
     private viewViewModel viewViewModel;
+    private postFragment pf;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         viewViewModel =
                 ViewModelProviders.of(this).get(viewViewModel.class);
-        View root = inflater.inflate(R.layout.staff_view, container, false);
+        View root = inflater.inflate(R.layout.staff_viewmain, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
         viewViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
+
             }
         });
         return root;
