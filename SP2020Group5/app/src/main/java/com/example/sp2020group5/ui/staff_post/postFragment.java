@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.sp2020group5.JobsActivity;
 import com.example.sp2020group5.R;
 
 import java.time.LocalDate;
@@ -62,8 +63,9 @@ public class postFragment extends Fragment {
                             LocalDate dateTime = LocalDate.parse(deadline, format);
                             LocalDate now = LocalDate.now();
                             if (!(dateTime.compareTo(now)<0)){
-                                postViewModel pvm = new postViewModel(title, desc, major, qualification,deadline);
-                               jobslist.add(pvm);
+                                postviewModel = postViewModel.getSingleton();
+
+                                postviewModel.arraylist_Add(postviewModel.loadjobs(title,desc,major,qualification,deadline));
                                 Toast.makeText(getActivity(), "Job has been posted Successfully ", Toast.LENGTH_LONG).show();
                                 titleET.setText("");
                                 descET.setText("");

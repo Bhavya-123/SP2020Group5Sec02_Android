@@ -20,8 +20,8 @@
     <fragment
         android:id="@+id/nav_view"
         android:name="com.example.sp2020group5.ui.staff_view.viewFragment"
-        android:label="view"
-        tools:layout="View Jobs" />
+        android:label="View Jobs"
+        tools:layout="@layout/activity_staff_view" />
 
     <fragment
         android:id="@+id/nav_profile"

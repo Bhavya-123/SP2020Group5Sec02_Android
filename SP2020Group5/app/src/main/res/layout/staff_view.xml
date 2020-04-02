@@ -1,22 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/text_slideshow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="top">
 
     <TextView
         android:id="@+id/jobnameTV"
@@ -25,154 +12,145 @@
         android:text="Software Developer - ABC Solutions"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105" />
+        android:layout_gravity="center"
+        />
 
-    <TextView
-        android:id="@+id/jobtitleheaderTV"
-        android:layout_width="wrap_content"
+    <LinearLayout
+            android:id="@+id/dyn_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/jobtitleheaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Job Title: "
+            android:layout_margin="10dp"
+          />
+
+        <TextView
+            android:id="@+id/jobtitleTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Java Developer"
+            android:layout_marginStart="100dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dyn_layout2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Job Title: "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.022"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182" />
+        android:orientation="horizontal"
+        android:padding="10dp"
+       >
 
-    <TextView
-        android:id="@+id/jobtitleTV"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/descheaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Description: " />
+
+        <TextView
+            android:id="@+id/jobdescTV"
+            android:layout_width="259dp"
+            android:layout_height="53dp"
+            android:text="We are looking for a java developer with experience in building high performance applications." />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dyn_layout3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Java Developer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.404"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182" />
+        android:orientation="horizontal"
+        android:padding="10dp"
+        >
 
-    <TextView
-        android:id="@+id/descheaderTV"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/majorheaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Major: "
+           />
+
+        <TextView
+            android:id="@+id/majorTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Computer Science"
+            android:layout_marginStart="100dp"
+            />
+           </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dyn_layout4"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Description: "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.022"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.227" />
+        android:orientation="horizontal"
+        android:padding="10dp"
+        >
 
-    <TextView
-        android:id="@+id/jobdescTV"
-        android:layout_width="259dp"
-        android:layout_height="53dp"
-        android:text="We are looking for a java developer with experience in building high performance applications."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.835"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" />
+        <TextView
+            android:id="@+id/qualheaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Qualifications: "
+            android:layout_margin="10dp"
+           />
 
-    <TextView
-        android:id="@+id/majorheaderTV"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/qualiTV"
+            android:layout_width="215dp"
+            android:layout_height="32dp"
+            android:text="BS/MS degree in Computer Science or any related subject."
+            android:layout_marginStart="100dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dyn_layout5"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Major: "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323" />
+        android:orientation="horizontal"
+        android:padding="10dp"
+        >
+        <TextView
+            android:id="@+id/deadlineheaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deadline: "
+            android:layout_margin="10dp"
 
-    <TextView
-        android:id="@+id/majorTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Computer Science"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.431"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323" />
+            />
 
-    <TextView
-        android:id="@+id/qualheaderTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Qualifications: "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.38" />
+        <TextView
+            android:id="@+id/deadlineTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="03/10/2020"
+            android:layout_marginStart="100dp"
+            />
 
-    <TextView
-        android:id="@+id/qualiTV"
-        android:layout_width="215dp"
-        android:layout_height="32dp"
-        android:text="BS/MS degree in Computer Science or any related subject."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.647"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.387" />
-
-    <TextView
-        android:id="@+id/deadlineheaderTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Deadline: "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.452" />
-
-    <TextView
-        android:id="@+id/deadlineTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="03/10/2020"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.452" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/changeBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="MAKE A CHANGE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.216"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.601" />
+        android:layout_gravity="center"
+        />
 
     <Button
         android:id="@+id/removeBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="REMOVE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.693"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.601" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>
