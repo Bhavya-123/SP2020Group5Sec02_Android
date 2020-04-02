@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="top">
+    android:gravity="top"
+    android:layout_marginBottom="30dp">
 
     <TextView
         android:id="@+id/jobnameTV"
@@ -20,23 +21,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="10dp" >
+            android:layout_marginTop="20dp"
+            android:weightSum="2">
 
         <TextView
             android:id="@+id/jobtitleheaderTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.6"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
             android:text="Job Title: "
-            android:layout_margin="10dp"
+
           />
 
         <TextView
             android:id="@+id/jobtitleTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1.4"
+            android:paddingLeft="10dp"
+
             android:text="Java Developer"
-            android:layout_marginStart="100dp"/>
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -44,21 +53,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:weightSum="2"
        >
 
         <TextView
             android:id="@+id/descheaderTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.6"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
             android:text="Description: " />
 
         <TextView
             android:id="@+id/jobdescTV"
-            android:layout_width="259dp"
-            android:layout_height="53dp"
-            android:text="We are looking for a java developer with experience in building high performance applications." />
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1.4"
+            android:paddingLeft="10dp"
+            android:text="We are looking for a java developer with experience." />
     </LinearLayout>
 
     <LinearLayout
@@ -66,23 +82,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:weightSum="2"
         >
 
         <TextView
             android:id="@+id/majorheaderTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.6"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
             android:text="Major: "
            />
 
         <TextView
             android:id="@+id/majorTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
             android:text="Computer Science"
-            android:layout_marginStart="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1.4"
+            android:paddingLeft="10dp"
             />
            </LinearLayout>
 
@@ -91,23 +113,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:weightSum="2"
         >
 
         <TextView
             android:id="@+id/qualheaderTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
             android:text="Qualifications: "
-            android:layout_margin="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.6"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
            />
 
         <TextView
             android:id="@+id/qualiTV"
-            android:layout_width="215dp"
-            android:layout_height="32dp"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1.4"
             android:text="BS/MS degree in Computer Science or any related subject."
-            android:layout_marginStart="100dp"
+            android:paddingLeft="10dp"
             />
     </LinearLayout>
 
@@ -116,41 +144,60 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:weightSum="2"
         >
         <TextView
             android:id="@+id/deadlineheaderTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
             android:text="Deadline: "
-            android:layout_margin="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.6"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
 
             />
 
         <TextView
             android:id="@+id/deadlineTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
             android:text="03/10/2020"
-            android:layout_marginStart="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1.4"
+            android:paddingLeft="10dp"
             />
 
     </LinearLayout>
 
+
+    <LinearLayout
+        android:id="@+id/dyn_layout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:weightSum="2"
+        >
     <Button
         android:id="@+id/changeBTN"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="MAKE A CHANGE"
         android:layout_gravity="center"
-        />
+        android:layout_marginRight="10dp"
+        android:layout_weight="1"
+        android:text="MAKE A CHANGE" />
 
     <Button
         android:id="@+id/removeBTN"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
         android:text="REMOVE"
         android:layout_gravity="center"
         />
+    </LinearLayout>
 
 </LinearLayout>
