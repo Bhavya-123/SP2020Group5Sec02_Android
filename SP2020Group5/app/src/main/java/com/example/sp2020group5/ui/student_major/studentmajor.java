@@ -36,22 +36,35 @@ public class studentmajor extends Fragment {
         button10 = (Button) v.findViewById(R.id.bmsBTN);
         button11 = (Button) v.findViewById(R.id.agriBTN);
         button12 = (Button) v.findViewById(R.id.businessBTN);
+        TextView jobname= v.findViewById(R.id.jobnameTV);
+        TextView jobtitle = v.findViewById(R.id.jobtitleTV);
+        TextView jobdesc = v.findViewById(R.id.jobdescTV);
+        final TextView major = v.findViewById(R.id.majorTV);
+        TextView qualification = v.findViewById(R.id.qualiTV);
+        TextView deadline = v.findViewById(R.id.deadlineTV);
+        //       jobname.setText(pvm.getJobslist().get(0).getJobtitle());
+//        jobtitle.setText(pvm.getJobslist().get(1).getJobtitle());
+//        jobdesc.setText(pvm.getJobslist().get(2).getJobdescription());
+//        major.setText(pvm.getJobslist().get(3).getMajor());
+//        qualification.setText(pvm.getJobslist().get(4).getQualifications());
+//        deadline.setText(pvm.getJobslist().get(5).getDeadline());
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                Intent intent1 = new Intent(getActivity(), JobsActivity.class);
-                startActivity(intent1);
-
+               startActivity(intent1);
             }
         });
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent1 = new Intent(getActivity(), JobsActivity.class);
                 startActivity(intent1);
+
             }
-        });
+            });
         button10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +94,8 @@ public class studentmajor extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(StudentmajorViewModel.class);
         // TODO: Use the ViewModel
+
+
     }
 
 }
