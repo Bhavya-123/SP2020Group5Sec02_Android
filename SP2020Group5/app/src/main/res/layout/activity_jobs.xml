@@ -1,23 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JobsActivity">
+    android:orientation="vertical"
+    android:gravity="top"
+    android:layout_marginBottom="10dp">
 
     <TextView
-        android:id="@+id/jobId"
+        android:id="@+id/jobnameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is navigated to a new page"
-        android:textColor="#000"
-        android:textSize="25dp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.637"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="Software Developer - ABC Solutions"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        />
+
+    <LinearLayout
+        android:id="@+id/dyn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/jobtitleheaderTV"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.6"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="Job Title: "
+
+            />
+
+        <TextView
+            android:id="@+id/jobtitleTV"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1.4"
+            android:paddingLeft="10dp"
+
+            android:text="Java Developer"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dyn_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:weightSum="2"
+        >
+
+        <TextView
+            android:id="@+id/descheaderTV"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.6"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="Description: " />
+
+        <TextView
+            android:id="@+id/jobdescTV"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1.4"
+            android:paddingLeft="10dp"
+            android:text="We are looking for a java developer with experience." />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dyn_layout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:weightSum="2"
+        >
+
+        <TextView
+            android:id="@+id/majorheaderTV"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.6"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="Major: "
+            />
+
+        <TextView
+            android:id="@+id/majorTV"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="Computer Science"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1.4"
+            android:paddingLeft="10dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dyn_layout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:weightSum="2"
+        >
+
+        <TextView
+            android:id="@+id/qualheaderTV"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="Qualifications: "
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.6"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            />
+
+        <TextView
+            android:id="@+id/qualiTV"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1.4"
+            android:text="BS/MS degree in Computer Science or any related subject."
+            android:paddingLeft="10dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dyn_layout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:weightSum="2"
+        >
+        <TextView
+            android:id="@+id/deadlineheaderTV"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="Deadline: "
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.6"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+
+            />
+
+        <TextView
+            android:id="@+id/deadlineTV"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="03/10/2020"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1.4"
+            android:paddingLeft="10dp"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

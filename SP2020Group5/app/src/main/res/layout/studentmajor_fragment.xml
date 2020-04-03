@@ -9,7 +9,7 @@
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/csBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Computer Science"
@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.15" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/infosysBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Information Systems"
@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.237" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/bmsBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bio Medical Science"
@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.317" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/agriBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Agricultural Science"
@@ -57,7 +57,7 @@
         app:layout_constraintVertical_bias="0.408" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/businessBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Business"

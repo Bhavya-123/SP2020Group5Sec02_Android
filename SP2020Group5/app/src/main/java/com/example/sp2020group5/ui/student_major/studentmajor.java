@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,11 +15,13 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.sp2020group5.JobsActivity;
 import com.example.sp2020group5.R;
+import com.example.sp2020group5.ui.staff_post.postViewModel;
 
 public class studentmajor extends Fragment {
 
     Button button,button9,button10,button11,button12;
     private StudentmajorViewModel mViewModel;
+    private postViewModel pvm = new postViewModel();
 
     public static studentmajor newInstance() {
         return new studentmajor();
@@ -28,16 +31,18 @@ public class studentmajor extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.studentmajor_fragment, container, false);
-        button = (Button) v.findViewById(R.id.button);
-        button9 = (Button) v.findViewById(R.id.button9);
-        button10 = (Button) v.findViewById(R.id.button10);
-        button11 = (Button) v.findViewById(R.id.button11);
-        button12 = (Button) v.findViewById(R.id.button12);
+        button = (Button) v.findViewById(R.id.csBTN);
+        button9 = (Button) v.findViewById(R.id.infosysBTN);
+        button10 = (Button) v.findViewById(R.id.bmsBTN);
+        button11 = (Button) v.findViewById(R.id.agriBTN);
+        button12 = (Button) v.findViewById(R.id.businessBTN);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(getActivity(), JobsActivity.class);
+
+               Intent intent1 = new Intent(getActivity(), JobsActivity.class);
                 startActivity(intent1);
+
             }
         });
         button9.setOnClickListener(new View.OnClickListener() {

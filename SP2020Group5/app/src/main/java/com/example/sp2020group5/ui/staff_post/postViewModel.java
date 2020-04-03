@@ -60,6 +60,12 @@ public class postViewModel extends ViewModel {
     public postViewModel() {
        // mText = new MutableLiveData<>();
         //mText.setValue("");
+        jobslist.add(new Jobs("java developer","need java developer",
+                "Computer Science","Masters","04/12/2020"));
+        jobslist.add(new Jobs("System Engineer","2 years experience is preferred",
+                "Information Systems","Masters","04/10/2020"));
+        jobslist.add(new Jobs("Web developer","need web developer",
+                "Computer Science","Masters","04/22/2020"));
     }
     private static postViewModel theModel= null;
     //
