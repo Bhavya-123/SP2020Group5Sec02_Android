@@ -54,13 +54,17 @@ public class myjobsViewModel extends ViewModel {
 
     }
 
-    public Jobs loadjobs(String title,String desc,String major,String qual,String deadline ){
-        return new Jobs(title,desc,major,qual,deadline);
-    }
+//    public Jobs loadjobs(String title,String desc,String major,String qual,String deadline ){
+//        return new Jobs(title,desc,major,qual,deadline);
+//    }
 
     public myjobsViewModel() {
         // mText = new MutableLiveData<>();
         //mText.setValue("");
+        myjobs = new ArrayList<Jobs>();
+        arraylist_Add();
+
+
     }
     private static myjobsViewModel theModel= null;
     //

@@ -12,9 +12,9 @@ import java.util.ArrayList;
 public class postViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
-    ArrayList<jobs> jobslist=new ArrayList<>();
+    ArrayList<Jobs> jobslist=new ArrayList<>();
 
-   public static class jobs
+   public static class Jobs
 
     {
         private String jobtitle;
@@ -23,7 +23,7 @@ public class postViewModel extends ViewModel {
         private String qualifications;
         private String deadline;
 
-        public jobs(String jobtitle, String jobdescription, String major, String qualifications, String deadline) {
+        public Jobs(String jobtitle, String jobdescription, String major, String qualifications, String deadline) {
             this.jobtitle = jobtitle;
             this.jobdescription = jobdescription;
             this.major = major;
@@ -53,8 +53,8 @@ public class postViewModel extends ViewModel {
 
     }
 
-    public jobs loadjobs(String title,String desc,String major,String qual,String deadline ){
-      return new jobs(title,desc,major,qual,deadline);
+    public Jobs loadjobs(String title,String desc,String major,String qual,String deadline ){
+      return new Jobs(title,desc,major,qual,deadline);
     }
 
     public postViewModel() {
@@ -84,13 +84,13 @@ public class postViewModel extends ViewModel {
     public LiveData<String> getText() {
         return mText;
     }
-    public void arraylist_Add(jobs m){
+    public void arraylist_Add(Jobs m){
 
         jobslist.add(m);
         Log.d("Arraylist","inside arraylist method"+jobslist.size());
     }
 
-    public ArrayList<jobs> getJobslist() {
+    public ArrayList<Jobs> getJobslist() {
         return jobslist;
     }
 }
