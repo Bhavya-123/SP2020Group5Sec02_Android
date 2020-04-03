@@ -39,7 +39,7 @@ public class studentmajor extends Fragment {
         TextView jobname= v.findViewById(R.id.jobnameTV);
         TextView jobtitle = v.findViewById(R.id.jobtitleTV);
         TextView jobdesc = v.findViewById(R.id.jobdescTV);
-        final TextView major = v.findViewById(R.id.majorTV);
+        TextView major = v.findViewById(R.id.majorTV);
         TextView qualification = v.findViewById(R.id.qualiTV);
         TextView deadline = v.findViewById(R.id.deadlineTV);
         //       jobname.setText(pvm.getJobslist().get(0).getJobtitle());
