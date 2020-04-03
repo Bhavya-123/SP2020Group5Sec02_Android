@@ -59,12 +59,8 @@ public class myjobsViewModel extends ViewModel {
 //    }
 
     public myjobsViewModel() {
-        // mText = new MutableLiveData<>();
-        //mText.setValue("");
         myjobs = new ArrayList<Jobs>();
         arraylist_Add();
-
-
     }
     private static myjobsViewModel theModel= null;
     //
@@ -91,6 +87,10 @@ public class myjobsViewModel extends ViewModel {
     }
     public void arraylist_Add(){
         myjobs.add(new Jobs("java developer","need java developer",
+                "Computer Science","Masters","04/12/2020"));
+        myjobs.add(new Jobs("System Engineer","2 years experience is preferred",
+                "Information Systems","Masters","04/10/2020"));
+        myjobs.add(new Jobs("","need java developer",
                 "Computer Science","Masters","04/12/2020"));
 
         Log.d("Arraylist","inside arraylist method"+myjobs.size());

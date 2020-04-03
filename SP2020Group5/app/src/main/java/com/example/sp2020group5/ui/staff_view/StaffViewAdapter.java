@@ -19,7 +19,7 @@ import com.example.sp2020group5.ui.staff_post.postFragment;
 import com.example.sp2020group5.ui.staff_post.postViewModel;
 
 public class StaffViewAdapter extends RecyclerView.Adapter<StaffViewAdapter.staffviewViewHolder> {
-    postViewModel pg=postViewModel.getSingleton();;
+    postViewModel pg=postViewModel.getSingleton();
     Context cont;
     public StaffViewAdapter(Context cont) {
 
@@ -60,8 +60,6 @@ public class StaffViewAdapter extends RecyclerView.Adapter<StaffViewAdapter.staf
         major.setText(pg.getJobslist().get(position).getMajor());
         qualification.setText(pg.getJobslist().get(position).getQualifications());
         deadline.setText(pg.getJobslist().get(position).getDeadline());
-//        TextView testTV=holder.ViewReference.findViewById(R.id.sampleid);
-       // testTV.setText("Hellloooo");
 
 
 

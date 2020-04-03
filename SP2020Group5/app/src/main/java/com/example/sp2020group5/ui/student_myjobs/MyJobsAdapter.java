@@ -1,6 +1,7 @@
 package com.example.sp2020group5.ui.student_myjobs;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -22,7 +23,7 @@ public class MyJobsAdapter extends RecyclerView.Adapter<MyJobsAdapter.studentjob
 
     @NonNull
     @Override
-    public studentjobsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyJobsAdapter.studentjobsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LinearLayout LL=(LinearLayout) LayoutInflater.from(context)
                 .inflate(R.layout.student_myjobs,parent,false);
@@ -50,6 +51,7 @@ public class MyJobsAdapter extends RecyclerView.Adapter<MyJobsAdapter.studentjob
 
     @Override
     public int getItemCount() {
+        Log.d("Sizeeeee","The size is "+mvm.getJobslist().size());
         return mvm.getJobslist().size();
     }
 
