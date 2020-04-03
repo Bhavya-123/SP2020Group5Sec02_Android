@@ -18,7 +18,7 @@ public class JobsActivity extends AppCompatActivity {
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"You Application was successfull",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Your Application was successfully submitted",Toast.LENGTH_LONG).show();
             }
         });
     }
