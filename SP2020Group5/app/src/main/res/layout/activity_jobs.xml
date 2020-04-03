@@ -171,5 +171,23 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/dyn_layout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:weightSum="2"
+        >
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apply now"
+        android:layout_marginLeft="110dp"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>
