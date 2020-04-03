@@ -1,5 +1,6 @@
 package com.example.sp2020group5.ui.student_myjobs;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -32,6 +33,11 @@ public class myjobsFragment extends Fragment {
     private GestureDetectorCompat detector = null;
     private postViewModel pvm;
     private myjobsViewModel myjobsViewModel;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
