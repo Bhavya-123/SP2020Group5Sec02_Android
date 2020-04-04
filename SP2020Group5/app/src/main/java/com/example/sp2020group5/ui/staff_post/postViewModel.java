@@ -54,6 +54,7 @@ public class postViewModel extends ViewModel {
     }
 
     public jobs loadjobs(String title,String desc,String major,String qual,String deadline ){
+
       return new jobs(title,desc,major,qual,deadline);
     }
 
