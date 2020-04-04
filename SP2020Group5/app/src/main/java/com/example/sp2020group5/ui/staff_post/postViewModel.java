@@ -12,9 +12,9 @@ import java.util.ArrayList;
 public class postViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
-    ArrayList<Jobs> jobslist=new ArrayList<>();
+    ArrayList<jobs> jobslist=new ArrayList<>();
 
-   public static class Jobs
+   public static class jobs
 
     {
         private String jobtitle;
@@ -23,7 +23,7 @@ public class postViewModel extends ViewModel {
         private String qualifications;
         private String deadline;
 
-        public Jobs(String jobtitle, String jobdescription, String major, String qualifications, String deadline) {
+        public jobs(String jobtitle, String jobdescription, String major, String qualifications, String deadline) {
             this.jobtitle = jobtitle;
             this.jobdescription = jobdescription;
             this.major = major;
@@ -54,23 +54,21 @@ public class postViewModel extends ViewModel {
     }
 
 
-    public jobs loadjobs(String title,String desc,String major,String qual,String deadline ){
+    public jobs loadjobs(String title,String desc,String major,String qual,String deadline ) {
 
-      return new jobs(title,desc,major,qual,deadline);
-
-    public Jobs loadjobs(String title,String desc,String major,String qual,String deadline ){
-      return new Jobs(title,desc,major,qual,deadline);
-
+        return new jobs(title, desc, major, qual, deadline);
     }
+
+
 
     public postViewModel() {
        // mText = new MutableLiveData<>();
         //mText.setValue("");
-        jobslist.add(new Jobs("java developer","need java developer",
+        jobslist.add(new jobs("java developer","need java developer",
                 "Computer Science","Masters","04/12/2020"));
-        jobslist.add(new Jobs("System Engineer","2 years experience is preferred",
+        jobslist.add(new jobs("System Engineer","2 years experience is preferred",
                 "Information Systems","Masters","04/10/2020"));
-        jobslist.add(new Jobs("Web developer","need web developer",
+        jobslist.add(new jobs("Web developer","need web developer",
                 "Computer Science","Masters","04/22/2020"));
     }
     private static postViewModel theModel= null;
@@ -96,13 +94,13 @@ public class postViewModel extends ViewModel {
     public LiveData<String> getText() {
         return mText;
     }
-    public void arraylist_Add(Jobs m){
+    public void arraylist_Add(jobs m){
 
         jobslist.add(m);
         Log.d("Arraylist","inside arraylist method"+jobslist.size());
     }
 
-    public ArrayList<Jobs> getJobslist() {
+    public ArrayList<jobs> getJobslist() {
         return jobslist;
     }
 }
