@@ -17,9 +17,12 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.sp2020group5.R;
 
+import java.util.ArrayList;
+
 public class helpFragment extends Fragment {
 
     private helpViewModel helpViewModel;
+    private ArrayList<String> querylist=new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -39,8 +42,11 @@ public class helpFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 EditText queryET = (EditText) root.findViewById(R.id.queryET);
-                if (queryET.getText().toString().isEmpty())
+                String query=queryET.getText().toString();
+                if (queryET.getText().toString().isEmpty()) {
+                    querylist.add(query);
                     Toast.makeText(getContext(), "Please enter any query", Toast.LENGTH_LONG).show();
+                }
                 else {
                     queryET.setText(" ");
                     Toast.makeText(getContext(), "Your query is submitted and we will get back to you", Toast.LENGTH_LONG).show();
