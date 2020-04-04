@@ -34,13 +34,18 @@ public class helpFragment extends Fragment {
             }
         });
 
-        Button submit = (Button)root.findViewById(R.id.submitBTN);
+        Button submit = (Button) root.findViewById(R.id.submitBTN);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText queryET = (EditText)root.findViewById(R.id.queryET);
-                queryET.setText(" ");
-                Toast.makeText(getContext(),"Your query is submitted and we will get back to you",Toast.LENGTH_LONG).show();
+                EditText queryET = (EditText) root.findViewById(R.id.queryET);
+                if (queryET.getText().toString().isEmpty())
+                    Toast.makeText(getContext(), "Please enter any query", Toast.LENGTH_LONG).show();
+                else {
+                    queryET.setText(" ");
+                    Toast.makeText(getContext(), "Your query is submitted and we will get back to you", Toast.LENGTH_LONG).show();
+
+                }
             }
         });
         return root;
