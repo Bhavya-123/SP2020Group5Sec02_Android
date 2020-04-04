@@ -46,7 +46,7 @@
         app:layout_constraintVertical_bias="0.331" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/queryET"
         android:layout_width="273dp"
         android:layout_height="47dp"
         android:ems="10"
@@ -59,7 +59,7 @@
         app:layout_constraintVertical_bias="0.416" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/helpBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SUBMIT"

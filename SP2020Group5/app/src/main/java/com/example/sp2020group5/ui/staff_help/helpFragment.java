@@ -1,10 +1,14 @@
 package com.example.sp2020group5.ui.staff_help;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -14,22 +18,42 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.sp2020group5.R;
 
+import java.util.ArrayList;
+
 public class helpFragment extends Fragment {
 
     private helpViewModel helpViewModel;
+    private ArrayList<String> querylist=new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         helpViewModel =
                 ViewModelProviders.of(this).get(helpViewModel.class);
-        View root = inflater.inflate(R.layout.staff_help, container, false);
-        final TextView textView = root.findViewById(R.id.text_share);
-        helpViewModel.getText().observe(this, new Observer<String>() {
+        final View root = inflater.inflate(R.layout.staff_help, container, false);
+        Button helpBTN=root.findViewById(R.id.helpBTN);
+
+        helpBTN.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onClick(View v) {
+                EditText queryET=root.findViewById(R.id.queryET);
+                String query=queryET.getText().toString();
+                if(!query.isEmpty()){
+                    querylist.add(query);
+                    Toast.makeText(getActivity(), "Your Query will be addressed soon", Toast.LENGTH_LONG).show();
+                    Log.d("help arraylist","list size is"+querylist.size());
+
+                }else{
+                    Toast.makeText(getActivity(), "Please enter the query which needs to be addressed", Toast.LENGTH_LONG).show();
+                }
             }
         });
+//        final TextView textView = root.findViewById(R.id.text_share);
+//        helpViewModel.getText().observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
         return root;
     }
 }
