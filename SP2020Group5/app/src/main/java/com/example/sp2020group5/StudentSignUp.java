@@ -14,11 +14,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 import org.w3c.dom.Text;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class StudentSignUp extends AppCompatActivity implements View.OnClickListener{
@@ -26,6 +35,8 @@ public class StudentSignUp extends AppCompatActivity implements View.OnClickList
     private EditText emailET,passwordET;
     private Button stusignupBTN;
     private FirebaseAuth firebaseAuth;
+    FirebaseDatabase root;
+    DatabaseReference reference;
     private ProgressDialog progressDialog;
 
 
@@ -46,9 +57,12 @@ public class StudentSignUp extends AppCompatActivity implements View.OnClickList
         String email = emailET.getText().toString().trim();
         String password = passwordET.getText().toString().trim();
         EditText fnameET = findViewById(R.id.firstnameET);
-        fname=fnameET.getText().toString();
+        fname=fnameET.getText().toString().trim();
         EditText lnameET = findViewById(R.id.lastnameET);
-        lname=lnameET.getText().toString();
+        lname=lnameET.getText().toString().trim();
+
+        root = FirebaseDatabase.getInstance();
+        reference = root.getReference().child("Students");
 
         if(!(fname.isEmpty() && lname.isEmpty() && email.isEmpty() && password.isEmpty())){
             if(!(fname.length()>50)){
@@ -83,7 +97,9 @@ public class StudentSignUp extends AppCompatActivity implements View.OnClickList
             return;
 
         }
-        progressDialog.setMessage("Registering user");
+        progressDialog.setMessage("Registering user...");
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
         firebaseAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
