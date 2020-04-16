@@ -15,11 +15,19 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class StaffLoginActivity extends AppCompatActivity {
     String empid,pwd;
     Button staffloginBTN;
     FirebaseAuth firebaseAuth;
+    FirebaseDatabase root;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +36,13 @@ public class StaffLoginActivity extends AppCompatActivity {
         final EditText empidET = findViewById(R.id.staffloginidET);
         final EditText pwdET=findViewById(R.id.staffloginpwdET);
         staffloginBTN = (Button)findViewById(R.id.staffloginBTN);
-        empid=empidET.getText().toString();
-        pwd=pwdET.getText().toString();
-
         firebaseAuth = FirebaseAuth.getInstance();
 
         staffloginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String empid = empidET.getText().toString().trim();
-                String password = pwdET.getText().toString().trim();
+                final String password = pwdET.getText().toString().trim();
 
                 if(TextUtils.isEmpty(empid)){
                     Toast.makeText(StaffLoginActivity.this,"Please enter employee-id",Toast.LENGTH_SHORT).show();
@@ -52,19 +57,48 @@ public class StaffLoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                empid=empid+"@nwmissouri.edu";
-                firebaseAuth.signInWithEmailAndPassword(empid, password)
-                        .addOnCompleteListener(StaffLoginActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) { startActivity(new Intent(getApplicationContext(),StaffActivity.class));
-                                } else {
-                                    Toast.makeText(StaffLoginActivity.this,"Login failed or User is not availabe",Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
+                //empid=empid+"@nwmissouri.edu";
 
+                reference = FirebaseDatabase.getInstance().getReference().child("Staff");
+                Query query = reference.orderByChild("empid").equalTo(empid);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.exists()){
+                            for(DataSnapshot user:dataSnapshot.getChildren()){
+                                StaffDetails staff = user.getValue(StaffDetails.class);
+                                if(staff.password.equals(password)){
+                                    Intent intent = new Intent(StaffLoginActivity.this, StaffActivity.class);
+                                    startActivity(intent);
+                                }else{
+                                    Toast.makeText(getApplicationContext(),"Password is wrong",Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        });
+                        }else{
+                            Toast.makeText(getApplicationContext(),"User not found",Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+//                firebaseAuth.signInWithEmailAndPassword(empid, password)
+//                        .addOnCompleteListener(StaffLoginActivity.this, new OnCompleteListener<AuthResult>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<AuthResult> task) {
+//                                if (task.isSuccessful()) { startActivity(new Intent(getApplicationContext(),StaffActivity.class));
+//                                } else {
+//                                    Toast.makeText(StaffLoginActivity.this,"Login failed or User is not availabe",Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//
+//                            }
+//                        });
             }
 
         });
