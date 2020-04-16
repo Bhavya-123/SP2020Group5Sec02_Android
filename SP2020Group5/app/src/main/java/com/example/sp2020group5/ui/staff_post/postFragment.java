@@ -19,6 +19,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.sp2020group5.JobsActivity;
 import com.example.sp2020group5.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -28,6 +30,8 @@ public class postFragment extends Fragment {
 
     private postViewModel postviewModel;
     ArrayList<postViewModel> jobslist=new ArrayList<>();
+    DatabaseReference ref;
+    int count=0;
 
     public ArrayList<postViewModel> getJobslist() {
         return jobslist;
@@ -40,6 +44,8 @@ public class postFragment extends Fragment {
        final View root = inflater.inflate(R.layout.staff_post, container, false);
 
         Button postBTN=root.findViewById(R.id.postBTN);
+        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        ref= FirebaseDatabase.getInstance().getReference().child("ADDJOBS");
         postBTN.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -66,6 +72,8 @@ public class postFragment extends Fragment {
                                 postviewModel = postViewModel.getSingleton();
 
                                 postviewModel.arraylist_Add(postviewModel.loadjobs(title,desc,major,qualification,deadline));
+                                ref.child("Job"+count).setValue(postviewModel.loadjobs(title,desc,major,qualification,deadline));
+                                count++;
                                 Toast.makeText(getActivity(), "Job has been posted Successfully ", Toast.LENGTH_LONG).show();
                                 titleET.setText("");
                                 descET.setText("");
