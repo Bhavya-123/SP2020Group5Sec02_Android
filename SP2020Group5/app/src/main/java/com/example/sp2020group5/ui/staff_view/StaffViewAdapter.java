@@ -18,14 +18,28 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.sp2020group5.R;
 import com.example.sp2020group5.ui.staff_post.postFragment;
 import com.example.sp2020group5.ui.staff_post.postViewModel;
+import com.example.sp2020group5.ui.student_myjobs.myjobsViewModel;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class StaffViewAdapter extends RecyclerView.Adapter<StaffViewAdapter.staffviewViewHolder> {
+
     postViewModel pg=postViewModel.getSingleton();
     Context cont;
-    public StaffViewAdapter(Context cont) {
+    ArrayList<postViewModel.jobs> j;
+    public StaffViewAdapter(Context cont, ArrayList<postViewModel.jobs> list) {
 
         super();
         Log.d("Constructor","Inside Adapter Constructor");
+        j=list;
         this.cont=cont;
 
     }
@@ -54,23 +68,28 @@ public class StaffViewAdapter extends RecyclerView.Adapter<StaffViewAdapter.staf
             @Override
             public void onClick(View v) {
                 pg.getJobslist().remove(count);
+                notifyDataSetChanged();
             }
         });
 
 
-        TextView jobname= holder.ViewReference.findViewById(R.id.jobnameTV);
-        TextView jobtitle = holder.ViewReference.findViewById(R.id.jobtitleTV);
-        TextView jobdesc = holder.ViewReference.findViewById(R.id.jobdescTV);
-        TextView major = holder.ViewReference.findViewById(R.id.majorTV);
-        TextView qualification = holder.ViewReference.findViewById(R.id.qualiTV);
-        TextView deadline = holder.ViewReference.findViewById(R.id.deadlineTV);
-        jobname.setText(pg.getJobslist().get(position).getJobtitle());
-        jobtitle.setText(pg.getJobslist().get(position).getJobtitle());
-        jobdesc.setText(pg.getJobslist().get(position).getJobdescription());
-        major.setText(pg.getJobslist().get(position).getMajor());
-        qualification.setText(pg.getJobslist().get(position).getQualifications());
-        deadline.setText(pg.getJobslist().get(position).getDeadline());
 
+
+
+                TextView jobname= holder.ViewReference.findViewById(R.id.jobnameTV);
+                TextView jobtitle = holder.ViewReference.findViewById(R.id.jobtitleTV);
+                TextView jobdesc = holder.ViewReference.findViewById(R.id.jobdescTV);
+                TextView major = holder.ViewReference.findViewById(R.id.majorTV);
+                TextView qualification = holder.ViewReference.findViewById(R.id.qualiTV);
+                TextView deadline = holder.ViewReference.findViewById(R.id.deadlineTV);
+
+
+                jobname.setText(pg.getJobslist().get(position).getJobtitle());
+                    jobtitle.setText(pg.getJobslist().get(position).getJobtitle());
+                    jobdesc.setText(pg.getJobslist().get(position).getJobdescription());
+                    major.setText(pg.getJobslist().get(position).getMajor());
+                    qualification.setText(pg.getJobslist().get(position).getQualifications());
+                    deadline.setText(pg.getJobslist().get(position).getDeadline());
 
 
 

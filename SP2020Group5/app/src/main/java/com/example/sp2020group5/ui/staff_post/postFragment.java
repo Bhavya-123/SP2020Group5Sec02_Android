@@ -19,12 +19,15 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.sp2020group5.JobsActivity;
 import com.example.sp2020group5.R;
+import com.example.sp2020group5.ui.staff_view.StaffViewAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class postFragment extends Fragment {
 
@@ -60,7 +63,7 @@ public class postFragment extends Fragment {
                 String major=MajorET.getText().toString();
                 String qualification=qualificationET.getText().toString();
                 String deadline=deadlineET.getText().toString();
-                DateTimeFormatter format = DateTimeFormatter.ofPattern("MM/d/yyyy");
+                DateTimeFormatter format = DateTimeFormatter.ofPattern("M/d/yyyy");
 
                 if(!title.isEmpty() && !desc.isEmpty() && !major.isEmpty() && !qualification.isEmpty() && !deadline.isEmpty()) {
 
@@ -71,8 +74,9 @@ public class postFragment extends Fragment {
                             if (!(dateTime.compareTo(now)<0)){
                                 postviewModel = postViewModel.getSingleton();
 
-                                postviewModel.arraylist_Add(postviewModel.loadjobs(title,desc,major,qualification,deadline));
-                                ref.child("Job"+count).setValue(postviewModel.loadjobs(title,desc,major,qualification,deadline));
+                               // postviewModel.arraylist_Add(postviewModel.loadjobs(title,desc,major,qualification,deadline));
+                                ref.push().setValue(postviewModel.loadjobs(title,desc,major,qualification,deadline));
+
                                 count++;
                                 Toast.makeText(getActivity(), "Job has been posted Successfully ", Toast.LENGTH_LONG).show();
                                 titleET.setText("");

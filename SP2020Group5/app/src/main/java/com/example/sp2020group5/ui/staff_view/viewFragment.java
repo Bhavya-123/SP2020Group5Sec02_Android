@@ -25,6 +25,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.sp2020group5.R;
 import com.example.sp2020group5.ui.staff_post.postFragment;
 import com.example.sp2020group5.ui.staff_post.postViewModel;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class viewFragment extends Fragment {
 
@@ -34,6 +39,7 @@ public class viewFragment extends Fragment {
     private RecyclerView staffRV;
     private GestureDetectorCompat detector = null;
     private postViewModel pvm;
+    DatabaseReference ref;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -50,14 +56,33 @@ public class viewFragment extends Fragment {
                 ViewModelProviders.of(this).get(viewViewModel.class);
         View root = inflater.inflate(R.layout.staff_viewmain, container, false);
         staffRV=(RecyclerView)root.findViewById(R.id.jobslistRV);
+        ref= FirebaseDatabase.getInstance().getReference().child("ADDJOBS");
 
 
         //staffRV.setHasFixedSize(true);
 
         RecyclerView.LayoutManager manager123=new LinearLayoutManager(getActivity());
         staffRV.setLayoutManager(manager123);
-        staffvAdapter= new StaffViewAdapter(getActivity());
-        staffRV.setAdapter(staffvAdapter);
+        postViewModel.getSingleton().getJobslist().clear();
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot:dataSnapshot.getChildren()){
+                     postViewModel.jobs j=snapshot.getValue(postViewModel.jobs.class);
+
+                     postViewModel.getSingleton().arraylist_Add(j);
+                }
+                staffvAdapter= new StaffViewAdapter(getActivity(),postViewModel.getSingleton().getJobslist());
+                staffRV.setAdapter(staffvAdapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         detector = new GestureDetectorCompat(getActivity(), new viewFragment.RecyclerViewOnGestureListener());
 
         staffRV.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener() {

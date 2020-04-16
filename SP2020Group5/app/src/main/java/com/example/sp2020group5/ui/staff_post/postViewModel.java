@@ -3,9 +3,14 @@ package com.example.sp2020group5.ui.staff_post;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 
@@ -14,14 +19,16 @@ public class postViewModel extends ViewModel {
     private MutableLiveData<String> mText;
     ArrayList<jobs> jobslist=new ArrayList<>();
 
-   public static class jobs
-
-    {
+   public static class jobs implements DatabaseReference.CompletionListener {
         private String jobtitle;
         private String jobdescription;
         private String major;
         private String qualifications;
         private String deadline;
+
+        public jobs() {
+
+        }
 
         public jobs(String jobtitle, String jobdescription, String major, String qualifications, String deadline) {
             this.jobtitle = jobtitle;
@@ -51,7 +58,11 @@ public class postViewModel extends ViewModel {
         }
 
 
-    }
+       @Override
+       public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+
+       }
+   }
 
 
     public jobs loadjobs(String title,String desc,String major,String qual,String deadline ) {
@@ -64,12 +75,12 @@ public class postViewModel extends ViewModel {
     public postViewModel() {
        // mText = new MutableLiveData<>();
         //mText.setValue("");
-        jobslist.add(new jobs("java developer","need java developer",
-                "Computer Science","Masters","04/12/2020"));
-        jobslist.add(new jobs("System Engineer","2 years experience is preferred",
-                "Information Systems","Masters","04/10/2020"));
-        jobslist.add(new jobs("Web developer","need web developer",
-                "Computer Science","Masters","04/22/2020"));
+//        jobslist.add(new jobs("java developer","need java developer",
+//                "Computer Science","Masters","04/12/2020"));
+//        jobslist.add(new jobs("System Engineer","2 years experience is preferred",
+//                "Information Systems","Masters","04/10/2020"));
+//        jobslist.add(new jobs("Web developer","need web developer",
+//                "Computer Science","Masters","04/22/2020"));
     }
     private static postViewModel theModel= null;
     //
