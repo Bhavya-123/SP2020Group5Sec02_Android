@@ -31,13 +31,14 @@ import java.util.Map;
 
 
 public class StudentSignUp extends AppCompatActivity implements View.OnClickListener{
-    String fname,lname;
+    String fname,lname,email,password;
     private EditText emailET,passwordET;
     private Button stusignupBTN;
     private FirebaseAuth firebaseAuth;
     FirebaseDatabase root;
     DatabaseReference reference;
     private ProgressDialog progressDialog;
+    int count=0;
 
 
     @Override
@@ -50,19 +51,28 @@ public class StudentSignUp extends AppCompatActivity implements View.OnClickList
         stusignupBTN.setOnClickListener(this);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
+        root = FirebaseDatabase.getInstance();
+        reference = root.getReference().child("Students");
+
 
     }
 
     private void registerUser(){
-        String email = emailET.getText().toString().trim();
-        String password = passwordET.getText().toString().trim();
+        email = emailET.getText().toString().trim();
+        password = passwordET.getText().toString().trim();
         EditText fnameET = findViewById(R.id.firstnameET);
         fname=fnameET.getText().toString().trim();
         EditText lnameET = findViewById(R.id.lastnameET);
         lname=lnameET.getText().toString().trim();
 
-        root = FirebaseDatabase.getInstance();
-        reference = root.getReference().child("Students");
+
+
+
+        StudentDetails stu = new StudentDetails(fname,lname,email,password);
+        reference.child("Student"+count).setValue(stu);
+        count++;
+
+
 
         if(!(fname.isEmpty() && lname.isEmpty() && email.isEmpty() && password.isEmpty())){
             if(!(fname.length()>50)){
@@ -70,7 +80,10 @@ public class StudentSignUp extends AppCompatActivity implements View.OnClickList
                     if ((email.contains("@nwmissouri.edu") || email.contains("@NWMISSOURI.EDU"))) {
                         if (!(password.length() < 8)) {
 
-//                            Toast.makeText(getApplicationContext(),"Your Registration as student is successful.Please Login",Toast.LENGTH_LONG).show();
+
+                            Toast.makeText(getApplicationContext(),"Your Registration as student is successful.Please Login",Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(StudentSignUp.this,StudentLoginActivity.class);
+                            startActivity(intent);
 
                         } else {
                             Toast.makeText(getApplicationContext(), "password cannot be less than 8 characters", Toast.LENGTH_LONG).show();
@@ -101,22 +114,25 @@ public class StudentSignUp extends AppCompatActivity implements View.OnClickList
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
-        firebaseAuth.createUserWithEmailAndPassword(email,password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Toast.makeText(StudentSignUp.this,"Registered Successfully",Toast.LENGTH_LONG).show();
-                            progressDialog.dismiss();
-                            Intent intent = new Intent(StudentSignUp.this,StudentLoginActivity.class);
-                            startActivity(intent);
-                        }
-                        else {
-                            Toast.makeText(StudentSignUp.this,"could not register",Toast.LENGTH_SHORT).show();
-                            progressDialog.dismiss();
-                        }
-                    }
-                });
+        progressDialog.dismiss();
+
+
+//        firebaseAuth.createUserWithEmailAndPassword(email,password)
+//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if (task.isSuccessful()){
+//                            Toast.makeText(StudentSignUp.this,"Registered Successfully",Toast.LENGTH_LONG).show();
+//                            progressDialog.dismiss();
+//                            Intent intent = new Intent(StudentSignUp.this,StudentLoginActivity.class);
+//                            startActivity(intent);
+//                        }
+//                        else {
+//                            Toast.makeText(StudentSignUp.this,"could not register",Toast.LENGTH_SHORT).show();
+//                            progressDialog.dismiss();
+//                        }
+//                    }
+//                });
     }
 
     @Override
@@ -125,9 +141,5 @@ public class StudentSignUp extends AppCompatActivity implements View.OnClickList
             registerUser();
         }
     }
-//	public void onClickRegister_asstudent(View v){
-//
 
-
-//}
 }
