@@ -17,6 +17,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.sp2020group5.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -24,6 +26,8 @@ public class helpFragment extends Fragment {
 
     private helpViewModel helpViewModel;
     private ArrayList<String> querylist=new ArrayList<>();
+    DatabaseReference ref;
+     static int count=0;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -35,10 +39,16 @@ public class helpFragment extends Fragment {
         helpBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 EditText queryET=root.findViewById(R.id.queryET);
                 String query=queryET.getText().toString();
                 if(!query.isEmpty()){
-                    querylist.add(query);
+                    ref= FirebaseDatabase.getInstance().getReference().child("HELP_QUERIES");
+
+                     ref.child("Query"+getnumber()).setValue(query);
+                     querylist.add(query);
+                    queryET.setText("");
+                    //count++;
                     Toast.makeText(getActivity(), "Your Query will be addressed soon", Toast.LENGTH_LONG).show();
                     Log.d("help arraylist","list size is"+querylist.size());
 
@@ -55,5 +65,8 @@ public class helpFragment extends Fragment {
 //            }
 //        });
         return root;
+    }
+    public static int getnumber(){
+        return count++;
     }
 }
