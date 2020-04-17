@@ -27,7 +27,7 @@
         android:id="@+id/nav_major"
         android:name="com.example.sp2020group5.ui.student_major.studentmajor"
         android:label="@string/menu_major"
-        tools:layout="@layout/student_major" />
+        tools:layout="@layout/student_majorjobslist" />
 
     <fragment
         android:id="@+id/nav_profile"

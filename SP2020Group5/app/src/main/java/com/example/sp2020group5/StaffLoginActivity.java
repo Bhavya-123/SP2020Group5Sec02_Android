@@ -57,7 +57,7 @@ public class StaffLoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                //empid=empid+"@nwmissouri.edu";
+                empid=empid+"@nwmissouri.edu";
 
                 reference = FirebaseDatabase.getInstance().getReference().child("Staff");
                 Query query = reference.orderByChild("empid").equalTo(empid);

@@ -92,7 +92,6 @@
         android:layout_width="145dp"
         android:layout_height="50dp"
         android:background="@color/cardview_dark_background"
-        android:onClick="onClickRegister_asstudent"
         android:text="SIGN UP"
         android:textColor="@color/colorWhite"
         android:textSize="16dp"

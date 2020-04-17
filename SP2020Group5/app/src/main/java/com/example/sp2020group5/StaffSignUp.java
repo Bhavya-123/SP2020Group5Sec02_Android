@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -27,7 +28,6 @@ public class StaffSignUp extends AppCompatActivity implements View.OnClickListen
     FirebaseDatabase root;
     DatabaseReference reference;
     private ProgressDialog progressDialog;
-    int count=0;
 
 
     @Override
@@ -40,6 +40,8 @@ public class StaffSignUp extends AppCompatActivity implements View.OnClickListen
         staffsignupBTN.setOnClickListener(this);
         progressDialog = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
+        root = FirebaseDatabase.getInstance();
+        reference = root.getReference().child("Staff");
     }
 
     private void registerUser(){
@@ -47,17 +49,15 @@ public class StaffSignUp extends AppCompatActivity implements View.OnClickListen
         staffFname = staffFnameET.getText().toString();
         EditText staffLnameET = findViewById(R.id.stafflastnameET);
         staffLname = staffLnameET.getText().toString();
-        EditText empidET = findViewById(R.id.staffempIdET);
+        final EditText empidET = findViewById(R.id.staffempIdET);
         empid = empidET.getText().toString();
         EditText pwdET = findViewById(R.id.staffpasswordET);
         password = pwdET.getText().toString();
 
-        root = FirebaseDatabase.getInstance();
-        reference = root.getReference().child("Staff");
-        StaffDetails staff = new StaffDetails(staffFname,staffLname,empid,password);
 
-        reference.child("Staff"+count).setValue(staff);
-        count++;
+//        StaffDetails staff = new StaffDetails(staffFname,staffLname,empid,password);
+//
+//        reference.child("Staff"+empid).setValue(staff);
 
         if ((!staffFname.isEmpty() && !staffLname.isEmpty() && !empid.isEmpty() && !password.isEmpty())) {
             if (!(staffFnameET.length() > 50)) {
@@ -93,6 +93,41 @@ public class StaffSignUp extends AppCompatActivity implements View.OnClickListen
 
         progressDialog.setMessage("Registering user");
         progressDialog.show();
+        empid = empid+"@nwmissouri.edu";
+
+        mAuth.fetchSignInMethodsForEmail(empid).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+            @Override
+            public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+                boolean verify = task.getResult().getSignInMethods().isEmpty();
+                if (verify) {
+                    mAuth.createUserWithEmailAndPassword(empid, password)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        StaffDetails staff = new StaffDetails(staffFname, staffLname, empid, password);
+                                        String[] splitEmail = empid.split("@");
+                                        reference.child("staff" + splitEmail[0]).setValue(staff);
+
+                                        Toast.makeText(StaffSignUp.this, "Registered Successfully", Toast.LENGTH_LONG).show();
+
+                                        progressDialog.dismiss();
+                                        Intent intent = new Intent(StaffSignUp.this, StaffLoginActivity.class);
+                                        startActivity(intent);
+                                    } else {
+                                        Toast.makeText(StaffSignUp.this, "could not register", Toast.LENGTH_SHORT).show();
+                                        progressDialog.dismiss();
+                                    }
+                                }
+                            });
+                } else {
+                    empidET.setError("email already exist");
+                    Toast.makeText(getApplicationContext(), "User already exist.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+        });
+
 //        xyz=empid;
 //        empid = empid+"@nwmissouri.edu";
 //        mAuth.createUserWithEmailAndPassword(empid,password)
