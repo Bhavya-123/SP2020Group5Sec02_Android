@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/profilename_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name: "
@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="0.15" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ABC"
@@ -44,7 +44,7 @@
         app:layout_constraintVertical_bias="0.15" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/profileemployeeid_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Employee id: "
@@ -57,7 +57,7 @@
         app:layout_constraintVertical_bias="0.215" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/profile_employeeid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="123456"
@@ -70,33 +70,20 @@
         app:layout_constraintVertical_bias="0.215" />
 
     <TextView
-        android:id="@+id/TextView20"
-        android:layout_width="66dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="212dp"
-        android:inputType="textPassword"
-        android:text="********"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/profilepassword_change"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_edit_black_24dp"
         android:text="Change"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintHorizontal_bias="0.952"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.291" />
+        app:layout_constraintVertical_bias="0.297" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/profilepassword_header"
         android:layout_width="102dp"
         android:layout_height="26dp"
         android:text="Password:"
@@ -109,7 +96,7 @@
         app:layout_constraintVertical_bias="0.297" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/password_ChangeBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SUBMIT"
@@ -119,6 +106,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.428" />
+
+    <EditText
+        android:id="@+id/profilepassword"
+        android:layout_width="147dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.644"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.299" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

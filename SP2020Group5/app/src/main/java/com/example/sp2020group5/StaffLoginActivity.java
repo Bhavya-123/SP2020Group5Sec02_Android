@@ -3,6 +3,7 @@ package com.example.sp2020group5;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sp2020group5.ui.staff_profile.profileFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -28,6 +30,11 @@ public class StaffLoginActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseDatabase root;
     DatabaseReference reference;
+    public static String username;
+    public static String pass;
+    public static String name;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +45,17 @@ public class StaffLoginActivity extends AppCompatActivity {
         staffloginBTN = (Button)findViewById(R.id.staffloginBTN);
         firebaseAuth = FirebaseAuth.getInstance();
 
+
+
+
+
         staffloginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String empid = empidET.getText().toString().trim();
                 final String password = pwdET.getText().toString().trim();
+                username=empid;
+                pass=password;
 
                 if(TextUtils.isEmpty(empid)){
                     Toast.makeText(StaffLoginActivity.this,"Please enter employee-id",Toast.LENGTH_SHORT).show();
@@ -68,6 +81,8 @@ public class StaffLoginActivity extends AppCompatActivity {
                             for(DataSnapshot user:dataSnapshot.getChildren()){
                                 StaffDetails staff = user.getValue(StaffDetails.class);
                                 if(staff.password.equals(password)){
+                                    name=staff.getFname()+" "+staff.getLname();
+
                                     Intent intent = new Intent(StaffLoginActivity.this, StaffActivity.class);
                                     startActivity(intent);
                                 }else{
@@ -130,6 +145,7 @@ public class StaffLoginActivity extends AppCompatActivity {
 //        }else{
 //            Toast.makeText(getApplicationContext(),"Please enter EmployeeID and Password",Toast.LENGTH_LONG).show();
 //        }
+
 
     }
 

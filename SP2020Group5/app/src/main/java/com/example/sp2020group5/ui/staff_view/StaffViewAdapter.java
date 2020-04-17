@@ -61,13 +61,14 @@ public class StaffViewAdapter extends RecyclerView.Adapter<StaffViewAdapter.staf
 
 
     @Override
-    public void onBindViewHolder(@NonNull staffviewViewHolder holder,  int position) {
+    public void onBindViewHolder(@NonNull staffviewViewHolder holder, final int position) {
         final int count=position;
         Button removeBTN=holder.ViewReference.findViewById(R.id.removeBTN);
         removeBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pg.getJobslist().remove(count);
+                //FirebaseDatabase.getInstance().getReference(position).removeValue();
                 notifyDataSetChanged();
             }
         });
