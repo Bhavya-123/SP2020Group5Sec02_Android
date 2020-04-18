@@ -8,4 +8,5 @@ import androidx.lifecycle.ViewModel;
 public class StudentmajorViewModel extends ViewModel {
     // TODO: Implement the ViewModel
 
+
 }
