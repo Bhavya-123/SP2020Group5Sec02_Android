@@ -24,7 +24,7 @@ Works with any credentials. Once can create credentials for login by signing up.
 ### Sequence Information
 
 **Flow Chart**
-- ! [Flow Chart](Flow Chart.png)
+ ![Flow Chart](https://github.com/Bhavya-123/SP2020Group5Sec02_Android/blob/master/Flow%20Chart.png)
 
    1. On Lunch of the app, Home screen appears.
    2. Home Screen has the below following
