@@ -64,9 +64,9 @@ public class StaffSignUp extends AppCompatActivity implements View.OnClickListen
                 if (!(staffLnameET.length() > 50)) {
                     if ((empid.length() == 6)) {
                         if (!(password.length() < 8)) {
-                            Toast.makeText(getApplicationContext(), "Your Registration is successful.Please Login", Toast.LENGTH_LONG).show();
-                            Intent ini = new Intent(this, StaffLoginActivity.class);
-                            startActivity(ini);
+//                            Toast.makeText(getApplicationContext(), "Your Registration is successful.Please Login", Toast.LENGTH_LONG).show();
+//                            Intent ini = new Intent(this, StaffLoginActivity.class);
+//                            startActivity(ini);
                         } else {
                             Toast.makeText(getApplicationContext(), "password cannot be less than 8 characters", Toast.LENGTH_LONG).show();
                             return;

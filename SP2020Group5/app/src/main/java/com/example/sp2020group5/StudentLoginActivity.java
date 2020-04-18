@@ -32,6 +32,9 @@ public class StudentLoginActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseDatabase root;
     DatabaseReference reference;
+    public static String uname;
+    public static String pwd;
+    public static String name;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
 
     @Override
@@ -50,6 +53,9 @@ public class StudentLoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = emailidET.getText().toString().trim();
                 final String password = studentpwdET.getText().toString().trim();
+
+                uname = email;
+                pwd = password;
 
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(StudentLoginActivity.this, "Please enter email-id", Toast.LENGTH_SHORT).show();
@@ -73,6 +79,7 @@ public class StudentLoginActivity extends AppCompatActivity {
                             for (DataSnapshot user : dataSnapshot.getChildren()) {
                                 StudentDetails stu = user.getValue(StudentDetails.class);
                                 if (stu.password.equals(password)) {
+                                    name=stu.getFname()+" "+stu.getLname();
                                     Intent intent = new Intent(StudentLoginActivity.this, StudentActivity.class);
                                     startActivity(intent);
                                 } else {
