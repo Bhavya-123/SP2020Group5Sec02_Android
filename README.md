@@ -21,6 +21,10 @@ Works with any credentials. Once can create credentials for login by signing up.
 - Pixel XL API 26(Name)  Android 8.0(Target)
 - Nexus 6P API 26(Name) Android 8.0(Target)
 
+### APK File
+apk file is in the following path
+[APK file](https://github.com/Bhavya-123/SP2020Group5Sec02_Android/blob/master/SP2020Group5/jobsmadeeasy.apk)
+
 ### Sequence Information
 
 **Flow Chart**
