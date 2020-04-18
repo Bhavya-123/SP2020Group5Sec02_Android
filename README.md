@@ -22,6 +22,10 @@ Works with any credentials. Once can create credentials for login by signing up.
 - Nexus 6P API 26(Name) Android 8.0(Target)
 
 ### Sequence Information
+
+**Flow Chart**
+![Flow Chart](Flow Chart.png)
+
    1. On Lunch of the app, Home screen appears.
    2. Home Screen has the below following
       - Two sign up buttons for Staff and student individually
