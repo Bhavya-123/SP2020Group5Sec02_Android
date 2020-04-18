@@ -5,22 +5,28 @@
     android:orientation="vertical"
     android:gravity="top"
     android:layout_marginBottom="10dp">
-    <Button
-        android:id="@+id/backBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="back"
-        android:layout_marginLeft="0dp"/>
 
-    <TextView
-        android:id="@+id/jobnameTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Software Developer - ABC Solutions"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/jobnameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Software Developer - ABC Solutions"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_gravity=""
+            />
+
+
+        <Button
+            android:id="@+id/applyBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:text="Apply now" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/dyn_layout"
@@ -49,9 +55,7 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1.4"
             android:paddingLeft="10dp"
-
-            android:text="Java Developer"
-            />
+            android:text="Java Developer" />
     </LinearLayout>
 
     <LinearLayout
@@ -186,12 +190,6 @@
         android:weightSum="2"
         >
 
-    <Button
-        android:id="@+id/applyBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Apply now"
-        android:layout_marginLeft="110dp"/>
 
     </LinearLayout>
 
