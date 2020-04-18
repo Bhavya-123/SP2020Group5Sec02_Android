@@ -24,7 +24,7 @@ Works with any credentials. Once can create credentials for login by signing up.
 
 ### APK File
 apk file is in the following path
-[APK file](https://github.com/Bhavya-123/SP2020Group5Sec02_Android/blob/master/SP2020Group5/jobsmadeeasy.apk)
+[APK file](SP2020Group5/jobsmadeeasy.apk)
 
 ### Sequence Information
 
