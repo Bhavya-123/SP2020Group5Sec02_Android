@@ -42,7 +42,7 @@ Works with any credentials. Once can create credentials for login by signing up.
       - Major: This displays the jobs posted by the staff based on the Major selected from the database
       - Profile: This functionality displays the logged in student credentials like name, email id and password with a provision to            change password and update in the database.
       - Help: This helps students to raise queries if any and those will be persisted in the database.
-      
+   7. If user clicks on Log out button from the overflow menu options user(Staff/Student) will be navigated to Home Screen
       
    
 
