@@ -17,9 +17,9 @@ Works with any credentials. Once can create credentials for login by signing up.
 - Staff Login: EmpId-134286, Password-enterpassword
 
 ### Supported Devices
-Pixel 2 XL API 26(Name)  Android 8.0(Target)
-Pixel XL API 26(Name)  Android 8.0(Target)
-Nexus 6P API 26(Name) Android 8.0(Target)
+- Pixel 2 XL API 26(Name)  Android 8.0(Target)
+- Pixel XL API 26(Name)  Android 8.0(Target)
+- Nexus 6P API 26(Name) Android 8.0(Target)
 
 ### Sequence Information
    1. On Lunch of the app, Home screen appears.
