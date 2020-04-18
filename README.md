@@ -24,7 +24,7 @@ Works with any credentials. Once can create credentials for login by signing up.
 ### Sequence Information
 
 **Flow Chart**
-![Flow Chart](Flow Chart.png)
+- ! [Flow Chart](Flow Chart.png)
 
    1. On Lunch of the app, Home screen appears.
    2. Home Screen has the below following
