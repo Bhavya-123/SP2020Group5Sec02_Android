@@ -64,10 +64,10 @@
         android:id="@+id/qualificationET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="352dp"
+        android:layout_marginBottom="340dp"
         android:ems="10"
+        android:hint="Qualifications"
         android:inputType="textPersonName"
-        android:hint="Qualificatinos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.131"
@@ -78,14 +78,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Deadline(MM/DD/YYYY)"
         android:inputType="textPersonName"
-        android:hint="Deadline"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.131"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.584" />
+        app:layout_constraintVertical_bias="0.607" />
 
     <Button
         android:id="@+id/postBTN"
