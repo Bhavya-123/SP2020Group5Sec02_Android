@@ -180,14 +180,7 @@
         android:layout_marginTop="20dp"
         android:weightSum="2"
         >
-    <Button
-        android:id="@+id/changeBTN"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginRight="10dp"
-        android:layout_weight="1"
-        android:text="MAKE A CHANGE" />
+
 
     <Button
         android:id="@+id/removeBTN"

@@ -23,6 +23,7 @@ import com.example.sp2020group5.ui.staff_view.StaffViewAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -64,28 +65,37 @@ public class postFragment extends Fragment {
                 String qualification=qualificationET.getText().toString();
                 String deadline=deadlineET.getText().toString();
                 DateTimeFormatter format = DateTimeFormatter.ofPattern("M/d/yyyy");
+                Boolean bool;
 
                 if(!title.isEmpty() && !desc.isEmpty() && !major.isEmpty() && !qualification.isEmpty() && !deadline.isEmpty()) {
 
                     if ((title.length() < 30)) {
                         if ((desc.length() < 100)) {
-                            LocalDate dateTime = LocalDate.parse(deadline, format);
-                            LocalDate now = LocalDate.now();
-                            if (!(dateTime.compareTo(now)<0)){
-                                postviewModel = postViewModel.getSingleton();
 
-                               // postviewModel.arraylist_Add(postviewModel.loadjobs(title,desc,major,qualification,deadline));
-                                ref.push().setValue(postviewModel.loadjobs(title,desc,major,qualification,deadline));
+                            try {
+                                LocalDate dateTime = LocalDate.parse(deadline, format);
 
-                                count++;
-                                Toast.makeText(getActivity(), "Job has been posted Successfully ", Toast.LENGTH_LONG).show();
-                                titleET.setText("");
-                                descET.setText("");
-                                MajorET.setText("");
-                                qualificationET.setText("");
-                                deadlineET.setText("");
-                            }else{
-                                Toast.makeText(getActivity(), "Deadline cannot be earlier than the current date", Toast.LENGTH_LONG).show();
+
+                                LocalDate now = LocalDate.now();
+
+                                if (!(dateTime.compareTo(now) < 0)) {
+                                    postviewModel = postViewModel.getSingleton();
+
+                                    // postviewModel.arraylist_Add(postviewModel.loadjobs(title,desc,major,qualification,deadline));
+                                    ref.push().setValue(postviewModel.loadjobs(title, desc, major, qualification, deadline));
+
+                                    count++;
+                                    Toast.makeText(getActivity(), "Job has been posted Successfully ", Toast.LENGTH_LONG).show();
+                                    titleET.setText("");
+                                    descET.setText("");
+                                    MajorET.setText("");
+                                    qualificationET.setText("");
+                                    deadlineET.setText("");
+                                } else {
+                                    Toast.makeText(getActivity(), "Deadline cannot be earlier than the current date", Toast.LENGTH_LONG).show();
+                                }
+                            }catch (Exception e){
+                                Toast.makeText(getActivity(), "Please enter Deadline in the correct format", Toast.LENGTH_LONG).show();
                             }
 
                         } else {
