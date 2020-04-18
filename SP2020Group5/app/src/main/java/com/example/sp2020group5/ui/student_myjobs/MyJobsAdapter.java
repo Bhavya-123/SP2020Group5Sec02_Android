@@ -12,12 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sp2020group5.R;
 
+import java.util.ArrayList;
+
 public class MyJobsAdapter extends RecyclerView.Adapter<MyJobsAdapter.studentjobsViewHolder> {
     myjobsViewModel mvm = myjobsViewModel.getSingleton();
     Context context;
+    ArrayList<myjobsViewModel.Jobs> jobs;
 
-    public MyJobsAdapter(Context context) {
+    public MyJobsAdapter(Context context, ArrayList<myjobsViewModel.Jobs> list) {
         super();
+        jobs=list;
         this.context=context;
     }
 
@@ -39,6 +43,7 @@ public class MyJobsAdapter extends RecyclerView.Adapter<MyJobsAdapter.studentjob
         TextView major = holder.ViewReference.findViewById(R.id.majorTV);
         TextView qualification = holder.ViewReference.findViewById(R.id.qualiTV);
         TextView deadline = holder.ViewReference.findViewById(R.id.deadlineTV);
+
         jobname.setText(mvm.getJobslist().get(position).getJobtitle());
         jobtitle.setText(mvm.getJobslist().get(position).getJobtitle());
         jobdesc.setText(mvm.getJobslist().get(position).getJobdescription());
@@ -51,7 +56,7 @@ public class MyJobsAdapter extends RecyclerView.Adapter<MyJobsAdapter.studentjob
 
     @Override
     public int getItemCount() {
-        Log.d("Sizeeeee","The size is "+mvm.getJobslist().size());
+        Log.d("Size","The size is "+mvm.getJobslist().size());
         return mvm.getJobslist().size();
     }
 

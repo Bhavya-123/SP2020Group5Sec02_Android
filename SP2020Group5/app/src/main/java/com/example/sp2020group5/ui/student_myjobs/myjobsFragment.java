@@ -22,7 +22,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.sp2020group5.R;
 import com.example.sp2020group5.ui.staff_post.postFragment;
 import com.example.sp2020group5.ui.staff_post.postViewModel;
-
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class myjobsFragment extends Fragment {
@@ -31,8 +35,8 @@ public class myjobsFragment extends Fragment {
     private MyJobsAdapter myJobsAdapter;
     private RecyclerView studentjobsRV;
     private GestureDetectorCompat detector = null;
-    private postViewModel pvm;
     private myjobsViewModel myjobsViewModel;
+    DatabaseReference jobsref;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -45,10 +49,30 @@ public class myjobsFragment extends Fragment {
                 ViewModelProviders.of(this).get(myjobsViewModel.class);
         View root = inflater.inflate(R.layout.studentjobsmain, container, false);
         studentjobsRV = (RecyclerView) root.findViewById(R.id.studentjobsRV);
+        jobsref = FirebaseDatabase.getInstance().getReference().child("MYJOBS");
+
         RecyclerView.LayoutManager manager123 = new LinearLayoutManager(getActivity());
         studentjobsRV.setLayoutManager(manager123);
-        myJobsAdapter = new MyJobsAdapter(getActivity());
-        studentjobsRV.setAdapter(myJobsAdapter);
+        myjobsViewModel.getSingleton().getJobslist().clear();
+        //myJobsAdapter = new MyJobsAdapter(getActivity());
+        //studentjobsRV.setAdapter(myJobsAdapter);
+
+        jobsref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot data:dataSnapshot.getChildren()){
+                    myjobsViewModel.Jobs jobs = data.getValue(myjobsViewModel.Jobs.class);
+                    myjobsViewModel.getSingleton().arraylist_Add(jobs);
+                }
+                myJobsAdapter = new MyJobsAdapter(getActivity(),myjobsViewModel.getSingleton().getJobslist());
+                studentjobsRV.setAdapter(myJobsAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         detector = new GestureDetectorCompat(getActivity(), new myjobsFragment.RecyclerViewOnGestureListener());
 
@@ -58,6 +82,9 @@ public class myjobsFragment extends Fragment {
             }
 
         });
+
+
+
         // final TextView textView = root.findViewById(R.id.text_gallery);
 //        myjobsViewModel.getText().observe(this, new Observer<String>() {
 //            @Override
@@ -78,7 +105,7 @@ public class myjobsFragment extends Fragment {
                 RecyclerView.ViewHolder holder = studentjobsRV.getChildViewHolder(view);
                 if (holder instanceof MyJobsAdapter.studentjobsViewHolder) {
                     int position = holder.getAdapterPosition();
-                    Log.d("gesture", "Gestrure listener insideeeeeeeeee");
+                    //Log.d("gesture", "Gestrure listener insideeeeeeeeee");
 
                     return true;
                 }
