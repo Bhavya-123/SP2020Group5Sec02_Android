@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.06"
-        app:srcCompat="@drawable/background_stu" />
+        android:background="@drawable/background_stu"/>
 
     <TextView
         android:id="@+id/textView21"
