@@ -17,16 +17,19 @@
             android:textSize="15dp"
             android:textStyle="bold"
             android:layout_gravity=""
+            android:textColor="#010b13"
+
             />
 
 
-        <Button
-            android:id="@+id/applyBTN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:text="Apply now" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/applyBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:text="Apply now" />
 
     <LinearLayout
         android:id="@+id/dyn_layout"
@@ -46,6 +49,7 @@
             android:paddingLeft="10dp"
             android:text="Job Title: "
             android:textStyle="bold"
+            android:textColor="#010b13"
             />
 
         <TextView
@@ -55,7 +59,8 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1.4"
             android:paddingLeft="10dp"
-            android:text="Java Developer" />
+            android:text="Java Developer"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -76,7 +81,8 @@
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="Description: "
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="#010b13"/>
 
         <TextView
             android:id="@+id/jobdescTV"
@@ -107,6 +113,7 @@
             android:paddingLeft="10dp"
             android:text="Major: "
             android:textStyle="bold"
+            android:textColor="#010b13"
             />
 
         <TextView
@@ -139,6 +146,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:textStyle="bold"
+            android:textColor="#010b13"
             />
 
         <TextView
@@ -170,6 +178,8 @@
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:textStyle="bold"
+            android:textColor="#010b13"
+
 
             />
 
