@@ -83,56 +83,12 @@ class JobsModel {
         jobsArray = new ArrayList<>();
         jobref = JobsActivity.jobref;
         loadModel();
-//        readData(new FirebaseCallback() {
-//            @Override
-//            public void onCallback(List<JobsModelInfo> list) {
-//                System.out.println("===============" + list);
-//
-//            }
-//        });
-//        System.out.println("------------------");
     }
-
-    private void readData(final FirebaseCallback firebaseCallback) {
-        jobref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //jobsArray.clear();
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    postViewModel.jobs joblist = data.getValue(postViewModel.jobs.class);
-                    if (joblist.getMajor().equalsIgnoreCase(JobsActivity.courseMajor)) {
-                        String name = joblist.getJobtitle();
-                        String jobtitle = joblist.getJobtitle();
-                        String jobdescription = joblist.getJobdescription();
-                        String major = joblist.getMajor();
-                        String qualifications = joblist.getQualifications();
-                        String deadline = joblist.getDeadline();
-
-                        jobsArray.add(new JobsModelInfo(name, jobtitle, jobdescription, major, qualifications, deadline));
-                    }
-                }
-                firebaseCallback.onCallback(jobsArray);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("database error");
-            }
-//        jobsArray.add(new JobsModelInfo("Software Developer", " Java developer ", "java developer ", "Computer science", "Master", "03/04/2020"));
-//        jobsArray.add(new JobsModelInfo("hardware Developer", " Developer ", "java  ", " science", "Degree", "03/04/2020"));
-        });
-    }
-
-    private interface FirebaseCallback {
-        void onCallback(List<JobsModelInfo> list);
-    }
-
 
     private void loadModel() {
         jobref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //jobsArray.clear();
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     postViewModel.jobs joblist = data.getValue(postViewModel.jobs.class);
                     if (joblist.getMajor().equalsIgnoreCase(JobsActivity.courseMajor)) {
@@ -153,8 +109,6 @@ class JobsModel {
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 System.out.println("database error");
             }
-//        jobsArray.add(new JobsModelInfo("Software Developer", " Java developer ", "java developer ", "Computer science", "Master", "03/04/2020"));
-//        jobsArray.add(new JobsModelInfo("hardware Developer", " Developer ", "java  ", " science", "Degree", "03/04/2020"));
         });
     }
 }
@@ -284,26 +238,7 @@ public class JobsActivity extends AppCompatActivity implements JobAdapter.MyOnCl
 
     @Override
     public void itemClick(int position) {
-//        name = JobAdapter.jobName;
-//        title  =JobAdapter.jobTitle;
-//        description = JobAdapter.jobDesc;
-//        major = JobAdapter.studentMajor;
-//        qualifications = JobAdapter.qualification;
-//        deadline = JobAdapter.deadline;
-//
-//
-////          name = jobnameTV.getText().toString();
-////               jobtitle = jobtitleTV.getText().toString();
-////               jobdescription = jobdescTV.getText().toString();
-////               major = majorTV.getText().toString();
-////               qualifications = qualiTV.getText().toString();
-////               deadline = deadlineTV.getText().toString();
-//
-//
-//               JobsModel.JobsModelInfo job = new JobsModel.JobsModelInfo(name,title,description,major,qualifications,deadline);
-//                reference.push().setValue(job);
-//
-//                Toast.makeText(getApplicationContext(),"Your Application was successfully submitted",Toast.LENGTH_LONG).show();
+
     }
 
 
@@ -360,68 +295,6 @@ public class JobsActivity extends AppCompatActivity implements JobAdapter.MyOnCl
             }
         });
 
-
-//        reference = FirebaseDatabase.getInstance().getReference().child("MYJOBS");
-//        jobref = FirebaseDatabase.getInstance().getReference().child("ADDJOBS");
-//
-//
-//
-//
-//
-//        final TextView jobnameTV = (TextView)findViewById(R.id.jobnameTV);
-//        final TextView jobtitleTV = (TextView)findViewById(R.id.jobtitleTV);
-//        final TextView jobdescTV = (TextView)findViewById(R.id.jobdescTV);
-//        final TextView majorTV = (TextView)findViewById(R.id.majorTV);
-//        final TextView qualiTV = (TextView)findViewById(R.id.qualiTV);
-//        final TextView deadlineTV = (TextView)findViewById(R.id.deadlineTV);
-//
-//        jobref.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                for(DataSnapshot data: dataSnapshot.getChildren()){
-//                    postViewModel.jobs joblist = data.getValue(postViewModel.jobs.class);
-//
-//                    String name = joblist.getJobtitle();
-//                    String jobtitle = joblist.getJobtitle();
-//                    String jobdescription = joblist.getJobdescription();
-//                    String major = joblist.getMajor();
-//                    String qualifications = joblist.getQualifications();
-//                    String deadline = joblist.getDeadline();
-//
-//                    jobnameTV.setText(jobtitle);
-//                    jobtitleTV.setText(jobtitle);
-//                    jobdescTV.setText(jobdescription);
-//                    majorTV.setText(major);
-//                    qualiTV.setText(qualifications);
-//                    deadlineTV.setText(deadline);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//                System.out.println("database error");
-//
-//            }
-//        });
-//
-//        Button apply = (Button) findViewById(R.id.applyBTN);
-//        apply.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//               name = jobnameTV.getText().toString();
-//               jobtitle = jobtitleTV.getText().toString();
-//               jobdescription = jobdescTV.getText().toString();
-//               major = majorTV.getText().toString();
-//               qualifications = qualiTV.getText().toString();
-//               deadline = deadlineTV.getText().toString();
-//
-//               Job job = new Job(name,jobtitle,jobdescription,major,qualifications,deadline);
-//                reference.push().setValue(job);
-//
-//                Toast.makeText(getApplicationContext(),"Your Application was successfully submitted",Toast.LENGTH_LONG).show();
-//            }
-//        });
-//
         Button back = (Button) findViewById(R.id.backBTN);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -431,133 +304,5 @@ public class JobsActivity extends AppCompatActivity implements JobAdapter.MyOnCl
             }
         });
 
-
-//
     }
-
-
-//    public class Job{
-//        String name,jobtitle, jobdescription, major, qualifications, deadline;
-//
-//        public Job(String name, String jobtitle, String jobdescription, String major, String qualifications, String deadline) {
-//            this.name = name;
-//            this.jobtitle = jobtitle;
-//            this.jobdescription = jobdescription;
-//            this.major = major;
-//            this.qualifications = qualifications;
-//            this.deadline = deadline;
-//        }
-//
-//        public String getName() {
-//            return name;
-//        }
-//
-//        public void setName(String name) {
-//            this.name = name;
-//        }
-//
-//        public String getJobtitle() {
-//            return jobtitle;
-//        }
-//
-//        public void setJobtitle(String jobtitle) {
-//            this.jobtitle = jobtitle;
-//        }
-//
-//        public String getJobdescription() {
-//            return jobdescription;
-//        }
-//
-//        public void setJobdescription(String jobdescription) {
-//            this.jobdescription = jobdescription;
-//        }
-//
-//        public String getMajor() {
-//            return major;
-//        }
-//
-//        public void setMajor(String major) {
-//            this.major = major;
-//        }
-//
-//        public String getQualifications() {
-//            return qualifications;
-//        }
-//
-//        public void setQualifications(String qualifications) {
-//            this.qualifications = qualifications;
-//        }
-//
-//        public String getDeadline() {
-//            return deadline;
-//        }
-//
-//        public void setDeadline(String deadline) {
-//            this.deadline = deadline;
-//        }
-//    }
-
-//    public static class JobList{
-//        String name,jobtitle, jobdescription, major, qualifications, deadline;
-//
-//
-//        public JobList(String name, String jobtitle, String jobdescription, String major, String qualifications, String deadline) {
-//            this.name = name;
-//            this.jobtitle = jobtitle;
-//            this.jobdescription = jobdescription;
-//            this.major = major;
-//            this.qualifications = qualifications;
-//            this.deadline = deadline;
-//        }
-//
-//        public String getName() {
-//            return name;
-//        }
-//
-//        public void setName(String name) {
-//            this.name = name;
-//        }
-//
-//        public String getJobtitle() {
-//            return jobtitle;
-//        }
-//
-//        public void setJobtitle(String jobtitle) {
-//            this.jobtitle = jobtitle;
-//        }
-//
-//        public String getJobdescription() {
-//            return jobdescription;
-//        }
-//
-//        public void setJobdescription(String jobdescription) {
-//            this.jobdescription = jobdescription;
-//        }
-//
-//        public String getMajor() {
-//            return major;
-//        }
-//
-//        public void setMajor(String major) {
-//            this.major = major;
-//        }
-//
-//        public String getQualifications() {
-//            return qualifications;
-//        }
-//
-//        public void setQualifications(String qualifications) {
-//            this.qualifications = qualifications;
-//        }
-//
-//        public String getDeadline() {
-//            return deadline;
-//        }
-//
-//        public void setDeadline(String deadline) {
-//            this.deadline = deadline;
-//        }
-//    }
-
-
 }
