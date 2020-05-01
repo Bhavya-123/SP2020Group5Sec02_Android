@@ -73,10 +73,6 @@ public class StaffViewAdapter extends RecyclerView.Adapter<StaffViewAdapter.staf
             }
         });
 
-
-
-
-
                 TextView jobname= holder.ViewReference.findViewById(R.id.jobnameTV);
                 TextView jobtitle = holder.ViewReference.findViewById(R.id.jobtitleTV);
                 TextView jobdesc = holder.ViewReference.findViewById(R.id.jobdescTV);
@@ -84,15 +80,12 @@ public class StaffViewAdapter extends RecyclerView.Adapter<StaffViewAdapter.staf
                 TextView qualification = holder.ViewReference.findViewById(R.id.qualiTV);
                 TextView deadline = holder.ViewReference.findViewById(R.id.deadlineTV);
 
-
                 jobname.setText(pg.getJobslist().get(position).getJobtitle());
                     jobtitle.setText(pg.getJobslist().get(position).getJobtitle());
                     jobdesc.setText(pg.getJobslist().get(position).getJobdescription());
                     major.setText(pg.getJobslist().get(position).getMajor());
                     qualification.setText(pg.getJobslist().get(position).getQualifications());
                     deadline.setText(pg.getJobslist().get(position).getDeadline());
-
-
 
     }
     @Override

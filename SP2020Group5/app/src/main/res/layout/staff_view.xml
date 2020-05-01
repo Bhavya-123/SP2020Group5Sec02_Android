@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="top"
-    android:layout_marginBottom="30dp">
+    >
 
     <TextView
         android:id="@+id/jobnameTV"
@@ -13,6 +13,7 @@
         android:text="Software Developer - ABC Solutions"
         android:textSize="20dp"
         android:textStyle="bold"
+        android:textColor="@color/colorBlack"
         android:layout_gravity="center"
         />
 
@@ -34,6 +35,7 @@
             android:paddingLeft="10dp"
             android:text="Job Title: "
             android:textStyle="bold"
+            android:textColor="@color/colorBlack"
             android:textSize="15dp"
 
           />
@@ -46,6 +48,7 @@
             android:layout_weight="1.4"
             android:paddingLeft="10dp"
             android:textSize="15dp"
+            android:textColor="@color/colorBlack"
             android:text="Java Developer"
             />
     </LinearLayout>
@@ -69,6 +72,7 @@
             android:paddingLeft="10dp"
             android:text="Description: "
             android:textSize="15dp"
+            android:textColor="@color/colorBlack"
             android:textStyle="bold"/>
 
         <TextView
@@ -79,6 +83,7 @@
             android:layout_weight="1.4"
             android:paddingLeft="10dp"
             android:textSize="15dp"
+            android:textColor="@color/colorBlack"
             android:text="We are looking for a java developer with experience." />
     </LinearLayout>
 
@@ -101,6 +106,7 @@
             android:paddingLeft="10dp"
             android:text="Major: "
             android:textSize="15dp"
+            android:textColor="@color/colorBlack"
             android:textStyle="bold"
            />
 
@@ -112,6 +118,7 @@
             android:textSize="15dp"
             android:layout_marginLeft="10dp"
             android:layout_weight="1.4"
+            android:textColor="@color/colorBlack"
             android:paddingLeft="10dp"
             />
            </LinearLayout>
@@ -135,6 +142,7 @@
             android:layout_marginRight="10dp"
             android:layout_weight="0.6"
             android:gravity="center_vertical"
+            android:textColor="@color/colorBlack"
             android:paddingLeft="10dp"
            />
 
@@ -145,6 +153,7 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1.4"
             android:text="BS/MS degree in Computer Science or any related subject."
+            android:textColor="@color/colorBlack"
             android:paddingLeft="10dp"
             />
     </LinearLayout>
@@ -164,6 +173,7 @@
             android:text="Deadline: "
             android:textSize="15dp"
             android:textStyle="bold"
+            android:textColor="@color/colorBlack"
             android:layout_marginRight="10dp"
             android:layout_weight="0.6"
             android:gravity="center_vertical"
@@ -177,6 +187,7 @@
             android:layout_height="50dp"
             android:text="03/10/2020"
             android:textSize="15dp"
+            android:textColor="@color/colorBlack"
             android:layout_marginLeft="10dp"
             android:layout_weight="1.4"
             android:paddingLeft="10dp"
@@ -202,6 +213,7 @@
         android:layout_marginLeft="10dp"
         android:layout_weight="1"
         android:text="REMOVE"
+        android:textColor="@color/colorBlack"
         android:layout_gravity="center"
         />
     </LinearLayout>

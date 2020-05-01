@@ -1,6 +1,7 @@
 package com.example.sp2020group5.ui.staff_view;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -19,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -63,6 +65,11 @@ public class viewFragment extends Fragment {
 
         RecyclerView.LayoutManager manager123=new LinearLayoutManager(getActivity());
         staffRV.setLayoutManager(manager123);
+        DividerItemDecoration itemDecor = new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL);
+        GradientDrawable drawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{R.color.colorBlack, R.color.colorBlack});
+        drawable.setSize(1,3);
+        itemDecor.setDrawable(drawable);
+        staffRV.addItemDecoration(itemDecor);
         postViewModel.getSingleton().getJobslist().clear();
         ref.addValueEventListener(new ValueEventListener() {
             @Override
