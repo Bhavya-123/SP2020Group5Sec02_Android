@@ -1,4 +1,5 @@
 # SP2020Group5Sec02_Android
+## APP Name : Jobs Made Easy
 ## Group Members
 - Bhavya Deepthi Gorrepati
 - Venkat Prudhvi Dommaraju
@@ -23,7 +24,7 @@ Works with any credentials. Once can create credentials for login by signing up.
 
 ### APK File
 apk file is in the following path
-[APK file](https://github.com/Bhavya-123/SP2020Group5Sec02_Android/blob/master/SP2020Group5/jobsmadeeasy.apk)
+[APK file](SP2020Group5/jobsmadeeasy.apk)
 
 ### Sequence Information
 
@@ -43,6 +44,7 @@ apk file is in the following path
       - Help: If Staff has some issues,it can be raised through this functionality which will be stored in the database.
    6. If logged in through student credentials ,will land into the student home activity where the Student Home Activity is a navigation       drawer with six menu items called Home, My Jobs, Search, Major, Profile and Help.
       - My jobs: This functionality displays the jobs applied by the student from the database.
+      - Search: This functionality allows user to search jobs related to a particular major. As of now we added jobs to some majors such as computer science,information systems,bio medical science,agricultural science,business.
       - Major: This displays the jobs posted by the staff based on the Major selected from the database
       - Profile: This functionality displays the logged in student credentials like name, email id and password with a provision to            change password and update in the database.
       - Help: This helps students to raise queries if any and those will be persisted in the database.
