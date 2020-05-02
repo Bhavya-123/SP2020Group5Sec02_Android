@@ -1,5 +1,6 @@
 package com.example.sp2020group5;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -33,6 +34,7 @@ public class StaffLoginActivity extends AppCompatActivity {
     public static String username;
     public static String pass;
     public static String name;
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -42,6 +44,7 @@ public class StaffLoginActivity extends AppCompatActivity {
         final EditText empidET = findViewById(R.id.staffloginidET);
         final EditText pwdET = findViewById(R.id.staffloginpwdET);
         staffloginBTN = (Button) findViewById(R.id.staffloginBTN);
+        progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
 
 
@@ -66,6 +69,8 @@ public class StaffLoginActivity extends AppCompatActivity {
                     return;
                 }
 
+                progressDialog.setMessage("Logging in...");
+                progressDialog.show();
                 empid = empid + "@nwmissouri.edu";
 
                 reference = FirebaseDatabase.getInstance().getReference().child("Staff");
@@ -78,15 +83,18 @@ public class StaffLoginActivity extends AppCompatActivity {
                                 StaffDetails staff = user.getValue(StaffDetails.class);
                                 if (staff.password.equals(password)) {
                                     name = staff.getFname() + " " + staff.getLname();
-
+                                    progressDialog.dismiss();
                                     Intent intent = new Intent(StaffLoginActivity.this, StaffActivity.class);
                                     startActivity(intent);
+                                    Toast.makeText(StaffLoginActivity.this, "Logged in Successfully", Toast.LENGTH_LONG).show();
                                 } else {
                                     Toast.makeText(getApplicationContext(), "Password is wrong", Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
                                 }
                             }
                         } else {
                             Toast.makeText(getApplicationContext(), "User not found", Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
 
                         }
                     }
