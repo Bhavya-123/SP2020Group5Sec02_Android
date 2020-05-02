@@ -44,7 +44,7 @@ apk file is in the following path
       - Help: If Staff has some issues,it can be raised through this functionality which will be stored in the database.
    6. If logged in through student credentials ,will land into the student home activity where the Student Home Activity is a navigation       drawer with six menu items called Home, My Jobs, Search, Major, Profile and Help.
       - My jobs: This functionality displays the jobs applied by the student from the database.
-      - Search: This functionality allows user to search jobs related to a particular major. As of now we added jobs to some majors such as computer science,information systems,bio medical science,agricultural science,business.
+      - Search: This functionality allows user to search jobs related to a particular job title. As of now we added jobs to some job             titles such as Software developer, Analyst, IT director, Dental therapist, IT manager,Biochemist, Auditor and Cashier. Studnet           can also apply respective jobs
       - Major: This displays the jobs posted by the staff based on the Major selected from the database
       - Profile: This functionality displays the logged in student credentials like name, email id and password with a provision to            change password and update in the database.
       - Help: This helps students to raise queries if any and those will be persisted in the database.
