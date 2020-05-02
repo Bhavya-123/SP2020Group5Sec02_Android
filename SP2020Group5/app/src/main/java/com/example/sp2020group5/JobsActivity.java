@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sp2020group5.ui.staff_post.postViewModel;
+import com.example.sp2020group5.ui.student_major.studentmajor;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -65,26 +66,19 @@ class JobsModel {
     private static JobsModel singleton = null;
     private static DatabaseReference jobref;
 
-    static int i = 1;
-
-    public static JobsModel getSingleton() {
-        if (i == 1) {
-            jobAdapter = new JobAdapter();
-            singleton = new JobsModel();
-            i++;
-        } else {
-            i = 1;
-        }
+    public static JobsModel getSingleton(ArrayList<JobsModelInfo> jobsArray) {
+//        jobAdapter = new JobAdapter();
+        singleton = new JobsModel(jobsArray);
         return singleton;
     }
 
 
     public ArrayList<JobsModelInfo> jobsArray;
 
-    private JobsModel() {
-        jobsArray = new ArrayList<>();
+    private JobsModel(ArrayList<JobsModelInfo> jobsArray) {
+        this.jobsArray = jobsArray;
         jobref = JobsActivity.jobref;
-        loadModel();
+//        loadModel();
     }
 
     private void loadModel() {
@@ -120,11 +114,6 @@ class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
 
     public static String jobName, jobTitle, jobDesc, studentMajor, qualification, deadline;
 
-
-    public JobAdapter() {
-        super();
-    }
-
     public static class JobViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private LinearLayout reference;
         MyOnClick myOnClick;
@@ -140,8 +129,6 @@ class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
 
         @Override
         public void onClick(View v) {
-
-
         }
     }
 
@@ -150,9 +137,9 @@ class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
 
     JobsModel jobsModel;
 
-    public JobAdapter(MyOnClick myOnClick) {
+    public JobAdapter(MyOnClick myOnClick, ArrayList<JobsModel.JobsModelInfo> jobsArray) {
         super();
-        jobsModel = JobsModel.getSingleton();
+        jobsModel = JobsModel.getSingleton(jobsArray);
         this.myOnClick = myOnClick;
     }
 
@@ -228,6 +215,7 @@ class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
 public class JobsActivity extends AppCompatActivity implements JobAdapter.MyOnClick {
 
     String name, title, description, major, qualifications, deadline;
+    public static ArrayList<JobsModel.JobsModelInfo> jobsArray;
     public static DatabaseReference reference, jobref;
 //    postViewModel pvm = new postViewModel();
 
@@ -240,7 +228,6 @@ public class JobsActivity extends AppCompatActivity implements JobAdapter.MyOnCl
 
     @Override
     public void itemClick(int position) {
-
     }
 
 
@@ -257,7 +244,7 @@ public class JobsActivity extends AppCompatActivity implements JobAdapter.MyOnCl
                 if (holder instanceof JobAdapter.JobViewHolder) {
                     int position = holder.getAdapterPosition();
                     Log.d("click", "clicked is " + position);
-                    JobsModel jobsModel = JobsModel.getSingleton();
+                    JobsModel jobsModel = JobsModel.getSingleton(jobsArray);
                     return true;
                 }
             }
@@ -277,39 +264,68 @@ public class JobsActivity extends AppCompatActivity implements JobAdapter.MyOnCl
 
         Intent ini = getIntent();
         courseMajor = ini.getStringExtra("major");
+        jobsArray = new ArrayList<>();
 
         System.out.println("-----------------" + courseMajor);
 
-        jobAdapter = new JobAdapter(this);
-        recyclerView = findViewById(R.id.recyclerview);
-        recyclerView.setAdapter(jobAdapter);
-
-
-        RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(manager);
-        DividerItemDecoration itemDecor = new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.VERTICAL);
-        GradientDrawable drawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{R.color.colorBlack, R.color.colorBlack});
-        drawable.setSize(1,3);
-        itemDecor.setDrawable(drawable);
-        recyclerView.addItemDecoration(itemDecor);
-
-        detectorCompat = new GestureDetectorCompat(this, new RecyclerViewOnGuesterListener());
-
-        recyclerView.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener() {
+        jobref.addValueEventListener(new ValueEventListener() {
             @Override
-            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-                return detectorCompat.onTouchEvent(e);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    postViewModel.jobs joblist = data.getValue(postViewModel.jobs.class);
+                    if (joblist.getMajor().equalsIgnoreCase(JobsActivity.courseMajor)) {
+                        jobsArray.add(
+                                new JobsModel.JobsModelInfo(
+                                        joblist.getJobtitle(),
+                                        joblist.getJobtitle(),
+                                        joblist.getJobdescription(),
+                                        joblist.getMajor(),
+                                        joblist.getQualifications(),
+                                        joblist.getDeadline())
+                        );
+                    }
+                }
+                studentmajor.progressBarPB.setVisibility(View.INVISIBLE);
+                jobAdapter = new JobAdapter(JobsActivity.this, jobsArray);
+                jobAdapter.notifyDataSetChanged();
+                recyclerView = findViewById(R.id.recyclerview);
+                recyclerView.setAdapter(jobAdapter);
+
+
+                RecyclerView.LayoutManager manager = new LinearLayoutManager(JobsActivity.this);
+                recyclerView.setLayoutManager(manager);
+                DividerItemDecoration itemDecor = new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.VERTICAL);
+                GradientDrawable drawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{R.color.colorBlack, R.color.colorBlack});
+                drawable.setSize(1, 3);
+                itemDecor.setDrawable(drawable);
+                recyclerView.addItemDecoration(itemDecor);
+
+                detectorCompat = new GestureDetectorCompat(JobsActivity.this, new RecyclerViewOnGuesterListener());
+
+                recyclerView.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener() {
+                    @Override
+                    public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                        return detectorCompat.onTouchEvent(e);
+                    }
+                });
+
+                Button back = (Button) findViewById(R.id.backBTN);
+                back.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent ini = new Intent(getApplicationContext(), StudentActivity.class);
+                        startActivity(ini);
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                System.out.println("database error");
             }
         });
 
-        Button back = (Button) findViewById(R.id.backBTN);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent ini = new Intent(getApplicationContext(), StudentActivity.class);
-                startActivity(ini);
-            }
-        });
 
     }
 }
