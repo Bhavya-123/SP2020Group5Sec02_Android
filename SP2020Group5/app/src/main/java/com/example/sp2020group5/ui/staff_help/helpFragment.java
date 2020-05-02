@@ -33,9 +33,10 @@ public class helpFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         helpViewModel =
                 ViewModelProviders.of(this).get(helpViewModel.class);
+        // Inflating the staff help layout xml file
         final View root = inflater.inflate(R.layout.staff_help, container, false);
         Button helpBTN=root.findViewById(R.id.helpBTN);
-
+        // Listening for click of help button using on click listeners
         helpBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,8 +44,9 @@ public class helpFragment extends Fragment {
                 EditText queryET=root.findViewById(R.id.queryET);
                 String query=queryET.getText().toString();
                 if(!query.isEmpty()){
+                    // Creating a node with name Help_Queries to store the raised queries by the user
                     ref= FirebaseDatabase.getInstance().getReference().child("HELP_QUERIES");
-
+                     // storing the data into the database
                      ref.child("Query"+getnumber()).setValue(query);
                      querylist.add(query);
                     queryET.setText("");
@@ -57,13 +59,7 @@ public class helpFragment extends Fragment {
                 }
             }
         });
-//        final TextView textView = root.findViewById(R.id.text_share);
-//        helpViewModel.getText().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
+//
         return root;
     }
     public static int getnumber(){

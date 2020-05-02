@@ -47,31 +47,34 @@ public class viewFragment extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
-//        ViewModelProvider.Factory factory = new ViewModelProvider.NewInstanceFactory();
-//        ViewModelProvider provider = new ViewModelProvider(mainActivity, factory);
-//        mainviewmodel = provider.get(MainViewModel.class);
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         viewViewModel =
                 ViewModelProviders.of(this).get(viewViewModel.class);
+        // Inflating the view with the layout xml which has a Recycler view in it
         View root = inflater.inflate(R.layout.staff_viewmain, container, false);
         staffRV=(RecyclerView)root.findViewById(R.id.jobslistRV);
+        // Getting access to the Addjobs node in the database.
         ref= FirebaseDatabase.getInstance().getReference().child("ADDJOBS");
 
-
-        //staffRV.setHasFixedSize(true);
-
         RecyclerView.LayoutManager manager123=new LinearLayoutManager(getActivity());
+        // Setting layout manager to the Recycler view
         staffRV.setLayoutManager(manager123);
+        // Divider item decoration class is used to divide the items in the recycler view with a horizontal line
         DividerItemDecoration itemDecor = new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL);
+        // This is to set the color to the divider
         GradientDrawable drawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{R.color.colorBlack, R.color.colorBlack});
+        // To set the height and width of the divider
         drawable.setSize(1,3);
         itemDecor.setDrawable(drawable);
+        // adding the decoration to the recycler view
         staffRV.addItemDecoration(itemDecor);
         postViewModel.getSingleton().getJobslist().clear();
+        // This addValue event listener listens for a data change and retrieves the complete data
         ref.addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot:dataSnapshot.getChildren()){
@@ -80,6 +83,7 @@ public class viewFragment extends Fragment {
                      postViewModel.getSingleton().arraylist_Add(j);
                 }
                 staffvAdapter= new StaffViewAdapter(getActivity(),postViewModel.getSingleton().getJobslist());
+                // Setting the adapter class to the recycler view to display data in the holder.
                 staffRV.setAdapter(staffvAdapter);
 
             }
@@ -99,12 +103,7 @@ public class viewFragment extends Fragment {
             }
         });
 
-//        viewViewModel.getText().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
 //
-//            }
-//        });
         return root;
     }
     class RecyclerViewOnGestureListener extends GestureDetector.SimpleOnGestureListener {

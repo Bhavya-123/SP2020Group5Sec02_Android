@@ -8,50 +8,35 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sp2020group5.R;
-import com.example.sp2020group5.ui.staff_post.postFragment;
+
 import com.example.sp2020group5.ui.staff_post.postViewModel;
-import com.example.sp2020group5.ui.student_myjobs.myjobsViewModel;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class StaffViewAdapter extends RecyclerView.Adapter<StaffViewAdapter.staffviewViewHolder> {
-
+    // Getting the object of postViewModel class using getsingleton method
     postViewModel pg=postViewModel.getSingleton();
     Context cont;
     ArrayList<postViewModel.jobs> j;
+    // Constructor
     public StaffViewAdapter(Context cont, ArrayList<postViewModel.jobs> list) {
 
         super();
-        Log.d("Constructor","Inside Adapter Constructor");
         j=list;
         this.cont=cont;
 
     }
-
-
-
-
+     // Overriding the method which creates a view holder required for Recycler View
         @NonNull
     @Override
     public StaffViewAdapter.staffviewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //Toast.makeText(parent.getContext(), "Inside staffviewHolder", Toast.LENGTH_LONG).show();
-        Log.d("ONCREATE VIEW HOLDER","inside view holder");
+
         LinearLayout CL=(LinearLayout)LayoutInflater.from(cont)
                 .inflate(R.layout.staff_view,parent,false);
         staffviewViewHolder svh=new staffviewViewHolder(CL);
@@ -59,10 +44,11 @@ public class StaffViewAdapter extends RecyclerView.Adapter<StaffViewAdapter.staf
     }
 
 
-
+    // Overriding a method to bind the data to the the view holder in the recycler view.
     @Override
     public void onBindViewHolder(@NonNull staffviewViewHolder holder, final int position) {
         final int count=position;
+        // Listens for the Remove Button in the recycler view to remove the particular data
         Button removeBTN=holder.ViewReference.findViewById(R.id.removeBTN);
         removeBTN.setOnClickListener(new View.OnClickListener() {
             @Override

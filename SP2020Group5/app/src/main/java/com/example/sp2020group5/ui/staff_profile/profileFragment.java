@@ -31,30 +31,34 @@ public class profileFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         profileViewModel =
                 ViewModelProviders.of(this).get(profileViewModel.class);
-
+        // Inflating the view with the staff profile layout xml file
         final View root = inflater.inflate(R.layout.staff_profile, container, false);
-//        String username=getArguments().getString("username");
-//        String password=getArguments().getString("password");
-        TextView nameTV=root.findViewById(R.id.profile_name);
-        TextView empidTV=root.findViewById(R.id.profile_employeeid);
-        final EditText passwordET=root.findViewById(R.id.profilepassword);
-        TextView changeTV=(TextView)root.findViewById(R.id.profilepassword_change);
+
+        TextView nameTV = root.findViewById(R.id.profile_name);
+        TextView empidTV = root.findViewById(R.id.profile_employeeid);
+        final EditText passwordET = root.findViewById(R.id.profilepassword);
+        TextView changeTV = (TextView) root.findViewById(R.id.profilepassword_change);
         nameTV.setText(StaffLoginActivity.name);
         empidTV.setText(StaffLoginActivity.username);
         passwordET.setText(StaffLoginActivity.pass);
-       passwordET.setEnabled(false);
+        passwordET.setEnabled(false);
+        // Listening for 'change' Text view to change the password using on click listener.
         changeTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // on click of button password field is being set to true to enable the field for editing
                 passwordET.setEnabled(true);
-                Button submitBTN=root.findViewById(R.id.password_ChangeBTN);
+
+                Button submitBTN = root.findViewById(R.id.password_ChangeBTN);
+                // Listening for On click of submit button to change the password in the database
                 submitBTN.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        EditText pwdTV=root.findViewById(R.id.profilepassword);
+                        EditText pwdTV = root.findViewById(R.id.profilepassword);
                         passwordET.setEnabled(false);
-                        ref= FirebaseDatabase.getInstance().getReference().child("Staff");
-                        ref.child("staff"+StaffLoginActivity.username).child("password").setValue(pwdTV.getText().toString());
+                        ref = FirebaseDatabase.getInstance().getReference().child("Staff");
+                        // Changing the password value with the new value in the database.
+                        ref.child("staff" + StaffLoginActivity.username).child("password").setValue(pwdTV.getText().toString());
                         Toast.makeText(getActivity(), "Password has been changed successfully ", Toast.LENGTH_LONG).show();
 
                     }
@@ -68,14 +72,5 @@ public class profileFragment extends Fragment {
 
         return root;
     }
-//    public static profileFragment newInstance(String username,String pwd){
-//        Bundle b=new Bundle();
-//        b.putString("username",username);
-//        b.putString("password",pwd);
-//        profileFragment pf=new profileFragment();
 //
-//        pf.setArguments(b);
-//        return pf;
-//
-//    }
 }

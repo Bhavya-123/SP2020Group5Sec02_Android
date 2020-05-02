@@ -25,7 +25,7 @@ public class postViewModel extends ViewModel {
         private String major;
         private String qualifications;
         private String deadline;
-
+        // No-arg constructor
         public jobs() {
 
         }
@@ -37,6 +37,7 @@ public class postViewModel extends ViewModel {
             this.qualifications = qualifications;
             this.deadline = deadline;
         }
+        // Getters and Setters
         public String getJobtitle() {
             return jobtitle;
         }
@@ -73,32 +74,16 @@ public class postViewModel extends ViewModel {
 
 
     public postViewModel() {
-       // mText = new MutableLiveData<>();
-        //mText.setValue("");
-//        jobslist.add(new jobs("java developer","need java developer",
-//                "Computer Science","Masters","04/12/2020"));
-//        jobslist.add(new jobs("System Engineer","2 years experience is preferred",
-//                "Information Systems","Masters","04/10/2020"));
-//        jobslist.add(new jobs("Web developer","need web developer",
-//                "Computer Science","Masters","04/22/2020"));
+
     }
     private static postViewModel theModel= null;
-    //
+    // Singleton method to get access to a single object
     public static postViewModel getSingleton() {
         if (theModel == null)
             theModel = new postViewModel();
         return theModel;
     }
-//    public postViewModel(String jobtitle, String jobdescription, String major, String qualifications, String deadline) {
 //
-//        this.jobtitle = jobtitle;
-//        this.jobdescription = jobdescription;
-//        this.major = major;
-//        this.qualifications = qualifications;
-//        this.deadline = deadline;
-//
-//
-//    }
 
 
 
@@ -108,7 +93,7 @@ public class postViewModel extends ViewModel {
     public void arraylist_Add(jobs m){
 
         jobslist.add(m);
-        Log.d("Arraylist","inside arraylist method"+jobslist.size());
+
     }
 
     public ArrayList<jobs> getJobslist() {

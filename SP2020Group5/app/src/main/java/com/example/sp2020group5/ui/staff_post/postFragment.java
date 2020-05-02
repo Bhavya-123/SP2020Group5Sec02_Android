@@ -7,33 +7,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
-import com.example.sp2020group5.JobsActivity;
 import com.example.sp2020group5.R;
-import com.example.sp2020group5.ui.staff_view.StaffViewAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class postFragment extends Fragment {
-
+    // Declaring a variable for postviewModel class
     private postViewModel postviewModel;
     ArrayList<postViewModel> jobslist=new ArrayList<>();
+    // Creating a reference for database
     DatabaseReference ref;
     int count=0;
 
@@ -45,11 +36,13 @@ public class postFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         postviewModel =
                 ViewModelProviders.of(this).get(postViewModel.class);
+        // Inflating the staff post layout xml file
        final View root = inflater.inflate(R.layout.staff_post, container, false);
 
         Button postBTN=root.findViewById(R.id.postBTN);
-        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        // creating a node in the firebase database with root as ADDJOBS
         ref= FirebaseDatabase.getInstance().getReference().child("ADDJOBS");
+        // Listening for Onclick using on Click listeners
         postBTN.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -66,12 +59,12 @@ public class postFragment extends Fragment {
                 String deadline=deadlineET.getText().toString();
                 DateTimeFormatter format = DateTimeFormatter.ofPattern("M/d/yyyy");
                 Boolean bool;
-
+                // Checking validations of all the fields
                 if(!title.isEmpty() && !desc.isEmpty() && !major.isEmpty() && !qualification.isEmpty() && !deadline.isEmpty()) {
 
                     if ((title.length() < 30)) {
                         if ((desc.length() < 100)) {
-
+                            // Converting the date taken from the user i.e. String to date datatype
                             try {
                                 LocalDate dateTime = LocalDate.parse(deadline, format);
 
@@ -80,8 +73,7 @@ public class postFragment extends Fragment {
 
                                 if (!(dateTime.compareTo(now) < 0)) {
                                     postviewModel = postViewModel.getSingleton();
-
-                                    // postviewModel.arraylist_Add(postviewModel.loadjobs(title,desc,major,qualification,deadline));
+                                    // If there are no validation issues then the data is stored into database-ADDJOBS node
                                     ref.push().setValue(postviewModel.loadjobs(title, desc, major, qualification, deadline));
 
                                     count++;
@@ -113,13 +105,7 @@ public class postFragment extends Fragment {
 
             }
         });
-      //  final TextView textView = root.findViewById(R.id.text_gallery);
-      //  postViewModel.getText().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-        //});
+
         return root;
     }
 

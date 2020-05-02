@@ -22,6 +22,7 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
+        // Inflating the staff home layout xml file
         View root = inflater.inflate(R.layout.staff_home, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
         homeViewModel.getText().observe(this, new Observer<String>() {
