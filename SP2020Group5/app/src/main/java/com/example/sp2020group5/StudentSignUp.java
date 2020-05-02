@@ -70,8 +70,6 @@ public class StudentSignUp extends AppCompatActivity implements View.OnClickList
                     if ((email.contains("@nwmissouri.edu") || email.contains("@NWMISSOURI.EDU"))) {
                         if (!(password.length() < 8)) {
 
-//                            Intent intent = new Intent(StudentSignUp.this, StudentLoginActivity.class);
-//                            startActivity(intent);
 
                         } else {
                             Toast.makeText(getApplicationContext(), "password cannot be less than 8 characters", Toast.LENGTH_LONG).show();
@@ -137,22 +135,6 @@ public class StudentSignUp extends AppCompatActivity implements View.OnClickList
             }
         });
 
-//        firebaseAuth.createUserWithEmailAndPassword(email,password)
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()){
-//                            Toast.makeText(StudentSignUp.this,"Registered Successfully",Toast.LENGTH_LONG).show();
-//                            progressDialog.dismiss();
-//                            Intent intent = new Intent(StudentSignUp.this,StudentLoginActivity.class);
-//                            startActivity(intent);
-//                        }
-//                        else {
-//                            Toast.makeText(StudentSignUp.this,"could not register",Toast.LENGTH_SHORT).show();
-//                            progressDialog.dismiss();
-//                        }
-//                    }
-//                });
     }
 
     @Override

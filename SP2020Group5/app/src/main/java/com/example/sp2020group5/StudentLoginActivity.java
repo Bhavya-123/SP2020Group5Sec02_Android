@@ -79,7 +79,7 @@ public class StudentLoginActivity extends AppCompatActivity {
                             for (DataSnapshot user : dataSnapshot.getChildren()) {
                                 StudentDetails stu = user.getValue(StudentDetails.class);
                                 if (stu.password.equals(password)) {
-                                    name=stu.getFname()+" "+stu.getLname();
+                                    name = stu.getFname() + " " + stu.getLname();
                                     Intent intent = new Intent(StudentLoginActivity.this, StudentActivity.class);
                                     startActivity(intent);
                                 } else {
@@ -97,92 +97,11 @@ public class StudentLoginActivity extends AppCompatActivity {
 
                     }
                 });
-
-//                firebaseAuth.signInWithEmailAndPassword(email, password)
-//                        .addOnCompleteListener(StudentLoginActivity.this, new OnCompleteListener<AuthResult>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<AuthResult> task) {
-//                                if (task.isSuccessful()) {
-//                                  startActivity(new Intent(getApplicationContext(),StudentActivity.class));
-//                                } else {
-//                                    Toast.makeText(StudentLoginActivity.this,"Login failed or User is not availabe",Toast.LENGTH_SHORT).show();
-//
-//                                }
-//
-//                            }
-//                        });
             }
         });
 
     }
 }
 
-//        mAuthStateListner = new FirebaseAuth.AuthStateListener() {
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                FirebaseUser mFirebaseUser = firebaseAuth.getCurrentUser();
-//                if (mFirebaseUser!=null){
-//                    Toast.makeText(StudentLoginActivity.this,"you are logged in",Toast.LENGTH_SHORT).show();
-//                    Intent intent = new Intent(StudentLoginActivity.this,StudentActivity.class);
-//                    startActivity(intent);
-//                }
-//                else {
-//                    Toast.makeText(StudentLoginActivity.this,"Please login",Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        };
 
-//        studentloginBTN.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (!(emailid.isEmpty() && studentpwd.isEmpty())) {
-//                    firebaseAuth.createUserWithEmailAndPassword(emailid, studentpwd)
-//                            .addOnCompleteListener(StudentLoginActivity.this, new OnCompleteListener<AuthResult>() {
-//                                @Override
-//                                public void onComplete(@NonNull Task<AuthResult> task) {
-//                                    if (task.isSuccessful()) {
-//                                        Toast.makeText(StudentLoginActivity.this, "Login error", Toast.LENGTH_LONG).show();
-//                                    } else {
-//                                        Intent intent = new Intent(StudentLoginActivity.this, StudentActivity.class);
-//                                        startActivity(intent);
-//                                    }
-//                                }
-//                            });
-//                }
-//            }
-//        });
-
-
-
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        firebaseAuth.addAuthStateListener(mAuthStateListner);
-//    }
-
-//    public void onclickLogin_student(View v){
-//        EditText emailidET = findViewById(R.id.stuloginidET);
-//        EditText studentpwdET=findViewById(R.id.stuloginpwdET);
-//        emailid=emailidET.getText().toString();
-//        studentpwd=studentpwdET.getText().toString();
-//
-//        if(!(emailid.isEmpty() && studentpwd.isEmpty())){
-//            if(emailid.contains("@nwmissouri.edu") || emailid.contains("@NWMISSOURI.EDU") ){
-//
-//                if(!(studentpwd.length()<8)){
-//                    Intent ini = new Intent(this,StudentActivity.class);
-//                    startActivity(ini);
-//                }
-//                else{
-//                    Toast.makeText(getApplicationContext(),"Password must be 8 or more characters long",Toast.LENGTH_LONG).show();
-//                }
-//
-//            }else{
-//                Toast.makeText(getApplicationContext(),"Please enter the proper SID(e.g.XXXXXX@nwmissouri.edu)",Toast.LENGTH_LONG).show();
-//            }
-//        }else{
-//            Toast.makeText(getApplicationContext(),"Please enter LoginId and Password",Toast.LENGTH_LONG).show();
-//        }
-//
-//    }
 
