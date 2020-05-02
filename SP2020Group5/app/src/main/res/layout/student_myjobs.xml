@@ -27,7 +27,7 @@
         <TextView
             android:id="@+id/jobtitleheaderTV"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_weight="0.6"
             android:gravity="center_vertical"
@@ -40,7 +40,7 @@
         <TextView
             android:id="@+id/jobtitleTV"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1.4"
             android:paddingLeft="10dp"
@@ -61,7 +61,7 @@
         <TextView
             android:id="@+id/descheaderTV"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_weight="0.6"
             android:gravity="center_vertical"
@@ -73,7 +73,7 @@
         <TextView
             android:id="@+id/jobdescTV"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1.4"
             android:paddingLeft="10dp"
@@ -92,7 +92,7 @@
         <TextView
             android:id="@+id/majorheaderTV"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_weight="0.6"
             android:gravity="center_vertical"
@@ -105,7 +105,7 @@
         <TextView
             android:id="@+id/majorTV"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:text="Computer Science"
             android:layout_marginLeft="10dp"
             android:layout_weight="1.4"
@@ -125,7 +125,7 @@
         <TextView
             android:id="@+id/qualheaderTV"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:text="Qualifications: "
             android:layout_marginRight="10dp"
             android:layout_weight="0.6"
@@ -138,7 +138,7 @@
         <TextView
             android:id="@+id/qualiTV"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1.4"
             android:text="BS/MS degree in Computer Science or any related subject."
@@ -157,7 +157,7 @@
         <TextView
             android:id="@+id/deadlineheaderTV"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:text="Deadline: "
             android:layout_marginRight="10dp"
             android:layout_weight="0.6"
@@ -171,7 +171,7 @@
         <TextView
             android:id="@+id/deadlineTV"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:text="03/10/2020"
             android:layout_marginLeft="10dp"
             android:layout_weight="1.4"
