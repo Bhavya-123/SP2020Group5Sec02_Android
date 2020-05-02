@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,7 +26,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class studentmajor extends Fragment {
 
-    Button compsci,is,bms,agri,business;
+    Button compsci, is, bms, agri, business;
+    public static ProgressBar progressBarPB;
     private StudentmajorViewModel mViewModel;
     private postViewModel pvm = new postViewModel();
 
@@ -37,7 +39,9 @@ public class studentmajor extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View v= inflater.inflate(R.layout.studentmajor_fragment, container, false);
+        View v = inflater.inflate(R.layout.studentmajor_fragment, container, false);
+        progressBarPB = v.findViewById(R.id.progressBarPB);
+        progressBarPB.setVisibility(View.INVISIBLE);
         compsci = (Button) v.findViewById(R.id.csBTN);
         is = (Button) v.findViewById(R.id.infosysBTN);
         bms = (Button) v.findViewById(R.id.bmsBTN);
@@ -54,19 +58,18 @@ public class studentmajor extends Fragment {
         compsci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                progressBarPB.setVisibility(View.VISIBLE);
                 Intent intent1 = new Intent(getActivity(), JobsActivity.class);
-                intent1.putExtra("major","computer science");
+                intent1.putExtra("major", "computer science");
                 startActivity(intent1);
-
             }
         });
         is.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                progressBarPB.setVisibility(View.VISIBLE);
                 Intent intent1 = new Intent(getActivity(), JobsActivity.class);
-                intent1.putExtra("major","information systems");
+                intent1.putExtra("major", "information systems");
                 startActivity(intent1);
 
             }
@@ -74,24 +77,27 @@ public class studentmajor extends Fragment {
         bms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBarPB.setVisibility(View.VISIBLE);
                 Intent intent1 = new Intent(getActivity(), JobsActivity.class);
-                intent1.putExtra("major","bio medical science");
+                intent1.putExtra("major", "bio medical science");
                 startActivity(intent1);
             }
         });
         agri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBarPB.setVisibility(View.VISIBLE);
                 Intent intent1 = new Intent(getActivity(), JobsActivity.class);
-                intent1.putExtra("major","agricultural science");
+                intent1.putExtra("major", "agricultural science");
                 startActivity(intent1);
             }
         });
         business.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBarPB.setVisibility(View.VISIBLE);
                 Intent intent1 = new Intent(getActivity(), JobsActivity.class);
-                intent1.putExtra("major","business");
+                intent1.putExtra("major", "business");
                 startActivity(intent1);
             }
         });
