@@ -6,4 +6,6 @@
     <color name="colorAqua">#00FFFF</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorBlue">#87ceeb</color>
+    <color name="colorGreen">#32cd32</color>
 </resources>

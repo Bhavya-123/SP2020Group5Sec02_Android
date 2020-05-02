@@ -213,6 +213,7 @@
         android:layout_marginLeft="10dp"
         android:layout_weight="1"
         android:text="REMOVE"
+        android:background="@color/colorAccent"
         android:textColor="@color/colorBlack"
         android:layout_gravity="center"
         />
