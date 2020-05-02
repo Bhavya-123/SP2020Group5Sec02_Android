@@ -64,6 +64,7 @@ public class searchFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String s1 = " ";
+                boolean failSearch = false;
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     if (postSnapshot.child("jobtitle").getValue().toString().equalsIgnoreCase(searchData.getQuery().toString())) {
                         final String j, jd, q, m, d;
@@ -96,7 +97,15 @@ public class searchFragment extends Fragment {
                                 }
                             }
                         });
+                        failSearch = false;
+                        break;
+                    } else {
+                        failSearch = true;
                     }
+                }
+                if (failSearch) {
+                    textDisplay1.setText("");
+                    Toast.makeText(getContext(), "Please enter a valid job title", Toast.LENGTH_SHORT).show();
                 }
             }
 
