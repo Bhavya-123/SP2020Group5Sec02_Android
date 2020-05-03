@@ -24,7 +24,9 @@ Works with any credentials. Once can create credentials for login by signing up.
 
 ### APK File
 apk file is in the following path
-[APK file](SP2020Group5/jobsmadeeasy.apk)
+[APK file](https://github.com/Bhavya-123/SP2020Group5Sec02_Android/blob/master/SP2020Group5/app-debug.apk)
+
+
 
 ### Sequence Information
 
@@ -49,6 +51,15 @@ apk file is in the following path
       - Profile: This functionality displays the logged in student credentials like name, email id and password with a provision to            change password and update in the database.
       - Help: This helps students to raise queries if any and those will be persisted in the database.
    7. If user clicks on Log out button from the overflow menu options user(Staff/Student) will be navigated to Home Screen
+   
+   ### Tasks Completion Status
+   -  Sign up and login of the users(Students and Staff).(Completed)
+   -  Staff can post and view jobs posted.(Completed)
+   -  Students can search for jobs based on job title and major.(Completed)
+   -  Students can view their applied jobs.(Completed)
+   -  Users(Students and Staff) can change their password from profile tab.(Completed)
+   -  Users(Students and Staff) can submit their queries about the application experience.(Completed)
+
       
    
 
