@@ -52,7 +52,7 @@ public class helpFragment extends Fragment {
                     queryET.setText("");
                     //count++;
                     Toast.makeText(getActivity(), "Your Query will be addressed soon", Toast.LENGTH_LONG).show();
-                    Log.d("help arraylist","list size is"+querylist.size());
+
 
                 }else{
                     Toast.makeText(getActivity(), "Please enter the query which needs to be addressed", Toast.LENGTH_LONG).show();
